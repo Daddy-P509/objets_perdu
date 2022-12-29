@@ -1,3 +1,9 @@
+<?php 
+    require_once "./langue.php";
+    require_once "./plateforme/in/login_tr.php"; 
+    // var_dump($langue["conexao"]["cr"]);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,9 +19,14 @@
     <title>Login</title>
 </head>
 <body>
-    <?php require_once "./plateforme/in/login_tr.php"; ?>
-
     <div class="container">
+        <!-- <div class="lang">
+            <select id="lang">
+                <option value="fr">Français</option>
+                <option value="pt">Portugues</option>
+                <option value="cr">Creole</option>
+            </select>
+        </div> -->
         <div class="wrapper">
             <div class="logo">
                 <img src="" alt="">

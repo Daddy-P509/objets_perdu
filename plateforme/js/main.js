@@ -1,29 +1,6 @@
 $(document).ready(function(){
 
-    function buscarAllPais() {
-        var retorno = false;
 
-        $.ajax({
-            type: 'GET',
-            dataType: 'json',
-            url: 'https://servicodados.ibge.gov.br/api/v1/localidades/paises?lang=EN',
-            async: false,
-            data: null,
-            success: function (response) {
-                retorno = response
-            },
-        });
-        return retorno;
-    }
-
-    var allPais = buscarAllPais();
-
-    var op = '';
-    for (var i = 0; i < allPais.length; i++) {
-        op += '<option value="' + allPais[i].nome + '">' + allPais[i].nome + '</option>'
-    }
-
-    $("#select_pais").append(op);
 
     $('#creer').click(function(){
         var retorno = false;

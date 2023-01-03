@@ -1,4 +1,5 @@
 <?php
+    include('../../languages/lang_config.php');
     session_start();
     $user = isset($_SESSION['user']) ? $_SESSION['user'] : die('Usuário não autenticado!'); 
     $info = $_SESSION['info_login'];
@@ -6,6 +7,9 @@
         $response.AddHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
         header("Location:/plateforme/login.php");
     }
+    // include('../../languages/lang_config.php');
+
+    // var_dump($lang['logo']);die;
 ?>
 
 <!DOCTYPE html>
@@ -22,19 +26,46 @@
     <title>Painel de Controle</title>
 </head>
 <body>
+<header class="header">
+		<div class="wrapper">
+			<div class="logo">
+				<h1><?php echo $lang['logo'] ?></h1>
+			</div>
+
+			<div class="menu">
+				<ul>
+					<li>
+						<a href="<?php echo SITEURL; ?>../../plateforme/admin/dashboard.php"><?php echo $lang['accueil'] ?></a>
+					</li>
+					<li>
+						<a href="../../plateforme/admin/dashboard.php?page=apropos"><?php echo $lang['apropos'] ?></a>
+					</li>
+
+					<?php 
+						// include('menu.php');
+					?>
+					
+					<li class="right">
+						<a href="../../plateforme/admin/dashboard.php?lang=fr"><?php echo $lang['francais'] ?></a>
+					</li>
+					<li class="right">
+						<a href="../../plateforme/admin/dashboard.php?lang=cr"><?php echo $lang['creole'] ?></a>
+					</li>
+					<li class="right">
+						<a href="../../plateforme/admin/dashboard.php?lang=pt"><?php echo $lang['portugues'] ?></a>
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="clearfix"></div>
+		</div>
+	</header>
+
     <div class='container'>
         <h1>Dashboard</h1>
         <button type="submit"> <a href="../../plateforme/in/logout.php">Deconecter</a></button>
         <hr>
-
-        <br>
-
-        <div class="groupe">
-            <form action="">
-                <input type="text" id="nome" placeholder="Votre Nome">
-                <input type="text" id="nome" placeholder="Votre Nome">
-            </form>
-        </div>
 
     </div>
 

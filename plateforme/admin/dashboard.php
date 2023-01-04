@@ -1,15 +1,12 @@
 <?php
     include('../../languages/lang_config.php');
-    session_start();
+    // session_start();
     $user = isset($_SESSION['user']) ? $_SESSION['user'] : die('Usuário não autenticado!'); 
     $info = $_SESSION['info_login'];
     if( $user && $user->statu_ != 1 ){
         $response.AddHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
         header("Location:/plateforme/login.php");
     }
-    // include('../../languages/lang_config.php');
-
-    // var_dump($lang['logo']);die;
 ?>
 
 <!DOCTYPE html>
@@ -21,53 +18,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="../../css/index.css">
+    <!-- <link rel="stylesheet" href="../../css/index.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel="stylesheet" href="../../MDB5/css/mdb.min.css">
+
+	<script src="../../MDB5/js/mdb.min.js"></script>
     
-    <title>Painel de Controle</title>
+    <title><?php echo $lang['logo'] ?></title>
 </head>
-<body>
-<header class="header">
-		<div class="wrapper">
-			<div class="logo">
-				<h1><?php echo $lang['logo'] ?></h1>
+<body style="background-color: #ededed;">
+	<!-- Navbar-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container justify-content-between">
+			<div class="d-flex">
+				<!-- Logo -->
+				<a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+					<?php echo $lang['logo'] ?>
+				</a>
 			</div>
 
-			<div class="menu">
-				<ul>
-					<li>
-						<a href="<?php echo SITEURL; ?>../../plateforme/admin/dashboard.php"><?php echo $lang['accueil'] ?></a>
-					</li>
-					<li>
-						<a href="../../plateforme/admin/dashboard.php?page=apropos"><?php echo $lang['apropos'] ?></a>
-					</li>
+			<!-- Menu -->
+			<ul class="navbar-nav flex-row d-none d-md-flex">
+				<li class="nav-item me-3 me-lg-1 active">
+					<a class="nav-link" href="../../plateforme/admin/dashboard.php?accueil">
+						<span><i class="fas fa-home"></i></span>
+						<?php echo $lang['accueil'] ?>
+					</a>
+				</li>
+				<li class="nav-item me-3 me-lg-1">
+					<a class="nav-link" href="../../pages/apropos.php?apropos">
+						<span><i class="far fa-user"></i></span>
+						<?php echo $lang['apropos'] ?>
+					</a>
+				</li>
+				<li class="nav-item me-3 me-lg-1">
+					<a class="nav-link" href="../../pages/contact.php?contact">
+						<span><i class="fas fa-envelope-open-text"></i></span>
+						<?php echo $lang['contact'] ?>
+					</a>
+				</li>
+			</ul>
 
-					<?php 
-						// include('menu.php');
-					?>
-					
-					<li class="right">
-						<a href="../../plateforme/admin/dashboard.php?lang=fr"><?php echo $lang['francais'] ?></a>
-					</li>
-					<li class="right">
-						<a href="../../plateforme/admin/dashboard.php?lang=cr"><?php echo $lang['creole'] ?></a>
-					</li>
-					<li class="right">
-						<a href="../../plateforme/admin/dashboard.php?lang=pt"><?php echo $lang['portugues'] ?></a>
-					</li>
-				</ul>
+			<!-- Right elements -->
+			<ul class="navbar-nav flex-row">
+				<!-- <li class="nav-item me-3 me-lg-1">
+					<a class="nav-link d-sm-flex align-items-sm-center" href="#">
+						<img src="./img/oeuil.png" height="20" alt="MDB Logo" loading="lazy" style="margin-top: 2px;" />
+						<strong class="d-none d-sm-block ms-1">JEMPSON LOUIS JEAN</strong>
+					</a>
+				</li> -->
+				<li class="nav-item dropdown me-3 me-lg-1">
+					<a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+						<i class="fas fa-comments fa-lg"></i>
+						<span class="badge rounded-pill badge-notification bg-danger">6</span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" >
+						<li>
+							<a class="dropdown-item" href="#">Some news</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Another news</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown me-3 me-lg-3">
+					<a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false" >
+						<i class="fas fa-bell fa-lg"></i>
+						<span class="badge rounded-pill badge-notification bg-danger">12</span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+						<li>
+							<a class="dropdown-item" href="#">Some news</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Another news</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="navbar-nav flex-row">
+				<!-- LANGUAGES -->
+				<li class="nav-item me-3 me-lg-0">
+					<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=fr">
+						<i class="flag flag-france" title="<?php echo $lang['francais'] ?>"></i>
+					</a>
+				</li>
+				<li class="nav-item me-3 me-lg-0">
+					<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=cr">
+						<i class="flag flag-haiti" title="<?php echo $lang['creole'] ?>"></i>
+					</a>
+				</li>
+				<li class="nav-item me-3 me-lg-0">
+					<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=pt">
+						<i class="flag flag-brazil" title="<?php echo $lang['portugues'] ?>"></i>
+					</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false"> 
+					<i class="fas fa-cog"></i>
+						<?php echo $lang['parametre'] ?> 
+					</a>
+					<!-- Dropdown menu -->
+					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i> <?php echo $lang['profile'] ?></a>
+						</li>
 
-			</div>
+						<li>
+							<a class="dropdown-item" href="../../plateforme/in/logout.php"><i class="fas fa-power-off"></i> <?php echo $lang['logout'] ?></a>
+						</li>
+					</ul>
+				</li>
 
-			<div class="clearfix"></div>
+			</ul>
 		</div>
-	</header>
+	</nav>
 
-    <div class='container'>
-        <h1>Dashboard</h1>
-        <button type="submit"> <a href="../../plateforme/in/logout.php">Deconecter</a></button>
-        <hr>
+	<nav class="navbar navbar-light" style="background-color: #e5e5e5d6;">
+		<div class="container justify-content-between" style="background-color: #dfdfdf75;">
+			<div class="d-flex">
+				<h5><?php echo $lang['accueil'] ?></h5>
+			</div>
 
-    </div>
+			<!-- Sub-menu -->
+			<ul class="navbar-nav flex-row">
+				<li class="nav-item me-3 me-lg-1">
+					<a class="nav-link d-sm-flex align-items-sm-center" href="#">
+						<i class="fas fa-user me-lg-2"> <?php echo $lang['presente'] ?>,
+						<strong class="d-none d-sm-block"><?php echo $user->nome ?></strong></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 
-</body>
+	<br>
+	<div class="container justify-content-between" style="background-color: #ededed;">
+		<div class="card">
+			<h5 class="card-header"><?php echo $lang['title_post'] ?></h5>
+			<div class="card-body">
+
+			<div class="card " style="width: 50rem;">
+				<div class="card-body">
+					<h5 class="card-title">Formulaire</h5>
+					
+					<div class="row g-3 border-primary">
+						<div class="col-sm-7">
+							<div class="form-outline">
+							<input type="text" id="form10Example1" class="form-control" />
+							<label class="form-label" for="form10Example1">Name</label>
+							</div>
+						</div>
+						<div class="col-sm">
+							<div class="form-outline">
+							<input type="text" id="form10Example2" class="form-control" />
+							<label class="form-label" for="form10Example2">Name</label>
+							</div>
+						</div>
+						<div class="col-sm">
+							<div class="form-outline">
+							<input type="text" id="form10Example3" class="form-control" />
+							<label class="form-label" for="form10Example3">Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			</div>
+		</div>
+	</div>
+
 </html>

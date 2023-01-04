@@ -87,45 +87,45 @@ $(document).ready(function () {
         $(this).val(currentValue);
     });
 
-    $("#senha").keyup(function(){
-        var modepasse = $('#senha').val();
+    $("#modepasse").keyup(function(){
+        var modepasse = $('#modepasse').val();
         var valid = modepasse.length;
         console.log(modepasse)
         if(!valid){
-            $('#senha').css("border", "solid 1px #CACBCA");  
+            $('#modepasse').css("border", "solid 1px #CACBCA");  
         }else if(valid <= 3){
-            $('#senha').css("border", "solid 1.4px #BF0000");  
+            $('#modepasse').css("border", "solid 1.4px #BF0000");  
         }else if(valid <= 6){
-            $('#senha').css("border", "solid 1.4px #D5A71B");
+            $('#modepasse').css("border", "solid 1.4px #D5A71B");
         }else if(valid <= 8){
-            $('#senha').css("border", "solid 1.4px #003AD4");
+            $('#modepasse').css("border", "solid 1.4px #003AD4");
         }else{
-            $('#senha').css("border", "solid 1.4px #019C1B");
+            $('#modepasse').css("border", "solid 1.4px #019C1B");
             
         }
     });
     
-    $("#repet_senha").keyup(function(){
-        var repModepasse = $('#repet_senha').val();
+    $("#rep_modepasse").keyup(function(){
+        var repModepasse = $('#rep_modepasse').val();
         var repValid = repModepasse.length;
         
         if(!repValid){
-            $('#repet_senha').css("border", "solid 1px #CACBCA");  
+            $('#rep_modepasse').css("border", "solid 1px #CACBCA");  
         }else if(repValid <= 3){
-            $('#repet_senha').css("border", "solid 1.4px #BF0000");  
+            $('#rep_modepasse').css("border", "solid 1.4px #BF0000");  
         }else if(repValid <= 6){
-            $('#repet_senha').css("border", "solid 1.4px #D5A71B ");
+            $('#rep_modepasse').css("border", "solid 1.4px #D5A71B ");
         }else if(repValid <= 8){
-            $('#repet_senha').css("border", "solid 1.4px #003AD4");
+            $('#rep_modepasse').css("border", "solid 1.4px #003AD4");
         }else{
-            $('#repet_senha').css("border", "solid 1.4px #019C1B");
+            $('#rep_modepasse').css("border", "solid 1.4px #019C1B");
             
         }
         
     });
 
     $(".oeuil1").on('click',function() {
-        var $pwd = $("#senha");
+        var $pwd = $("#modepasse");
         if ($pwd.attr('type') === 'password') {
             $pwd.attr('type', 'text');
         } else {
@@ -134,7 +134,7 @@ $(document).ready(function () {
     });
     
     $(".oeuil").on('click',function() {
-        var $pwd = $("#repet_senha");
+        var $pwd = $("#rep_modepasse");
         if ($pwd.attr('type') === 'password') {
             $pwd.attr('type', 'text');
         } else {
@@ -153,54 +153,89 @@ $(document).ready(function () {
         var modepasse = $('#modepasse').val();
         var repModepasse = $('#rep_modepasse').val();
 
-        if(!nome || !email || !telefone || !pays || !adresse || !numero || modepasse || repModepasse){
-
-            alert('Todos os campos estão obligatorio');
-
-        }else if(repet_senha != senha){
-    
-            $('#repet_senha').css("border", "solid 1px red");
-            alert('Senha estão diferente')
-
-        }else{
-    
-            var form = {
-                nome,
-                email,
-                telefone,
-                pays,
-                adresse,
-                numero,
-                modepasse
-            }
-    
-            // $.ajax({
-            //     type: 'POST',
-            //     dataType: 'json',
-            //     url: 'php/registra_usuario.php',
-            //     async: false,
-            //     data: registro,
-            //     success: function (response) {
-            //         setTimeout(function () {
-            //             window.location.reload();
-            //         }, 1000);
-                    
-            //     },
-            // });
-
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: './plateforme/php/creer_compt.php',
-                async: false,
-                data: form,
-                success: function (response) {
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 1000);
-                },
-            });
+        var form = {
+            nome,
+            email,
+            telefone,
+            pays,
+            adresse,
+            numero,
+            modepasse
         }
+
+        if(!nome || !email || !telefone || !pays || !adresse || !numero || !modepasse || !repModepasse){
+            alert('Tous les champs son obligatoir')
+        }else{
+            if(modepasse != repModepasse){
+                $('#rep_modepasse').css("border", "solid 1px red");
+                alert('modepasse diferant')
+            }else{
+
+                console.log(form);
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: './plateforme/php/creer_compt.php',
+                    async: false,
+                    data: form,
+                    success: function (response) {
+                        retorno = response
+                    },
+                });
+                return retorno;
+            }
+        }
+
+        // if(!nome || !email || !telefone || !pays || !adresse || !numero || modepasse || repModepasse){
+
+        //     alert('Todos os campos estão obligatorio');
+
+        // }else if(repModepasse != modepasse){
+    
+        //     $('#rep_modepasse').css("border", "solid 1px red");
+        //     alert('Senha estão diferente')
+
+        // }else{
+    
+        //     var form = {
+        //         nome,
+        //         email,
+        //         telefone,
+        //         pays,
+        //         adresse,
+        //         numero,
+        //         modepasse
+        //     }
+
+        //     console.log(form)
+    
+        //     $.ajax({
+        //         type: 'POST',
+        //         dataType: 'json',
+        //         url: 'php/registra_usuario.php',
+        //         async: false,
+        //         data: registro,
+        //         success: function (response) {
+        //             setTimeout(function () {
+        //                 window.location.reload();
+        //             }, 1000);
+                    
+        //         },
+        //     });
+
+        //     $.ajax({
+        //         type: 'POST',
+        //         dataType: 'json',
+        //         url: './plateforme/php/creer_compt.php',
+        //         async: false,
+        //         data: form,
+        //         success: function (response) {
+        //             setTimeout(function () {
+        //                 window.location.reload();
+        //             }, 1000);
+        //         },
+        //     });
+        // }
 
     });
 

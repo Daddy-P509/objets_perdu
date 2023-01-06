@@ -2,6 +2,7 @@
 
 .alert {
   border: 0;
+  border-radius: $alert-border-radius;
 }
 
 .alert-absolute {
@@ -9,10 +10,8 @@
 }
 
 .alert-fixed {
-  --#{$prefix}alert-fixed-z-index: #{$alert-zindex};
-
   position: fixed;
-  z-index: var(--#{$prefix}alert-fixed-z-index);
+  z-index: $zindex-alert;
 }
 
 .parent-alert-relative {

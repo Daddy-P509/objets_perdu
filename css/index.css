@@ -1,3 +1,101 @@
+
 h1{
     font-size: medium;
+}
+
+.container{
+    background-color: #e7e7e7;
+}
+
+.logo{
+    color: #3b71ca !important;
+    font-family: fantasy !important;
+    text-transform: uppercase;
+}
+
+hr{
+    color: #3b71ca !important;
+    font-family: fantasy !important;
+}
+
+.logo:hover{
+    color: #0a4db9 !important;
+    text-decoration-line: revert;
+}
+
+li a:hover{
+    color: #032c6e !important;
+    text-decoration-line: revert;
+}
+
+label{
+    color: #3b71ca !important;
+    font-family: "Font Awesome 5 Free";
+   
+}
+
+.title{
+    font-size: larger;
+    color: #3b71ca;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #3b71ca !important;
+}
+
+.group{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    border: solid 1px rgba(230, 227, 227, 0.671);
+}
+
+.left{
+    width: 68%;
+
+}
+
+.right{
+    width: 28%;
+    background-color: white;
+    padding: 20px;
+}
+
+.visol #imgVisor{
+    width: 200px;
+    border: solid 1px rgba(230, 227, 227, 0.671);;
+    height: 200px;
+    border-radius: 8px;
+}
+
+
+/* .shadow {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
+} */
+
+@media only screen and (max-width: 640px) {
+    .card .w-50{
+        width: 100% !important;
+    }
+
+    .group{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .left{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .right{
+        width: 100%;
+    }
+
 }

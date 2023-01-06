@@ -4,7 +4,7 @@
 		'meta_description' => 'Multi-Lingual Blog in PHP and MySQLi',
 		'meta_keywords' => 'Multi-Lingual,Blog,PHP,MySQLi',
 		'jempson' => 'Jempson Louis Jean',
-		'logo' => 'Jwenn Objè ki Pèdi',
+		'logo' => 'Jwenn Dokiman ki Pèdi',
 		'accueil' => 'Byenvini',
 		'apropos' => 'Konsènan',
 		'contact' => 'Kontakte nou',
@@ -33,8 +33,20 @@
 		'msg_select' => 'Chwazi Peyi',
 		'parametre' => 'Anviwònman',
 		'profile' => 'Kont mwen',
+		'modifier_profile' => 'Mete ajou pwofil ou a',
+		'soliciter_Ac' => 'Mande aktive',
 		'logout' => 'Dekonekte',
-		'title_post' => 'Pibliye yon objè pèdi',
+		'title_post' => 'Pibliye yon dokiman ki pèdi',
+
+		'form' => 'Fòm',
+		'form_nom' => 'Non',
+		'form_categorie' => 'Kategori',
+		'form_recupere' => 'Rekipere',
+		'form_description' => 'Deskripsyon',
+		'form_observation' => 'obsèvasyon',
+		'form_img' => 'Ajoute imaj',
+		'form_vis_img' => 'Wè imaj la',
+		'btn_form' => 'Pibliye',
 
 
 

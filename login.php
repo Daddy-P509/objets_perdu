@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="./MDB5/css/mdb.min.css">
     <link rel="stylesheet" href="./css/login.css">
 
-    <!-- <script src="./plateforme/js/jquery.js"></script>
-    <script src="./plateforme/js/login.js"></script> -->
-
     <script src="./MDB5/js/mdb.min.js"></script>
+    <script src="./plateforme/js/jquery.js"></script>
+    <script src="./plateforme/js/login.js"></script>
+
 
     <title>Login</title>
 </head>
@@ -27,7 +27,7 @@
         <!-- Login -->
         <br><br>
         <h5><?php echo $lang['msg_login'] ?></h5>
-        <div class="card" style="background-color: #d6d9db; width: 30%; margin: auto; padding: 20px;">
+        <div class="card shadow-4" style="background-color: #d6d9db; width: 30%; margin: auto; padding: 20px;">
             <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="btn-floating active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab" 
@@ -58,13 +58,13 @@
                         <!-- <p class="text-center">or:</p> -->
         
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="loginName"><?php echo $lang['email'] ?></label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="<?php echo $lang['email'] ?>"/>
+                            <label class="form-label" for="loginName"><?php echo $lang['email'] ?></label>
                         </div>
         
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="loginPassword"><?php echo $lang['mot_de_passe'] ?></label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="<?php echo $lang['mot_de_passe'] ?>"/>
+                            <label class="form-label" for="loginPassword"><?php echo $lang['mot_de_passe'] ?></label>
                         </div>
         
                         <div class="row mb-4">
@@ -96,53 +96,53 @@
                         <!-- Name input -->
                         <div class="form-outline mb-4">
                             <input type="text"  id="nome" placeholder="<?php echo $lang['nome_log'] ?>" class="form-control" />
-                            <label class="form-label" for="registerName">Name</label>
+                            <label class="form-label" for="registerName"><?php echo $lang['nome_log'] ?></label>
                         </div>
         
                         <!-- Username input -->
                         <div class="form-outline mb-4">
                             <input type="email" id="e_mail" placeholder="<?php echo $lang['email'] ?>" class="form-control" />
-                            <label class="form-label" for="registerUsername">Email</label>
+                            <label class="form-label" for="registerUsername"><?php echo $lang['email'] ?></label>
                         </div>
         
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" id="telefone" placeholder="<?php echo $lang['telefone_log'] ?>" class="form-control" />
-                            <label class="form-label" for="registerEmail">Tel</label>
+                            <input type="numero" id="telefone" placeholder="<?php echo $lang['telefone_log'] ?>" class="form-control" />
+                            <label class="form-label" for="registerEmail"><?php echo $lang['telefone_log'] ?></label>
                         </div>
 
                         <!-- Pays input -->
                         <div class="form-outline mb-4">
-                            <select id="select_pais" class="form-control form-control-sm">
+                            <select id="select_pais" class="form-control">
                                 <option value=""><?php echo $lang['msg_select'] ?></option>
                             </select>
                         </div>
         
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" id="adresse" placeholder="<?php echo $lang['adresse'] ?>" class="form-control" />
-                            <label class="form-label" for="registerPassword">Adr</label>
+                            <input type="text" id="adresse" placeholder="<?php echo $lang['adresse'] ?>" class="form-control" />
+                            <label class="form-label" for="registerPassword"><?php echo $lang['adresse'] ?></label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" id="numero" placeholder="<?php echo $lang['numero'] ?>" class="form-control" />
-                            <label class="form-label" for="registerPassword">num</label>
+                            <input type="numero" id="numero" placeholder="<?php echo $lang['numero'] ?>" class="form-control" />
+                            <label class="form-label" for="registerPassword"><?php echo $lang['numero'] ?></label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <input type="password" id="modepasse" placeholder="<?php echo $lang['mot_de_passe'] ?>" class="form-control" />
-                            <label class="form-label" for="registerPassword">Password</label>
+                            <label class="form-label" for="registerPassword"><?php echo $lang['mot_de_passe'] ?></label>
                         </div>
         
                         <!-- Repeat Password input -->
                         <div class="form-outline mb-4">
                             <input type="password" id="rep_modepasse" placeholder="<?php echo $lang['repMot_de_passe'] ?>" class="form-control" />
-                            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                            <label class="form-label" for="registerRepeatPassword"><?php echo $lang['repMot_de_passe'] ?></label>
                         </div>
         
-                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                        <button type="submit" id="inscrever" class="btn btn-primary btn-block mb-3"><?php echo $lang['btn_cr_compt'] ?></button>
                     </form>
                 </div>
             </div>

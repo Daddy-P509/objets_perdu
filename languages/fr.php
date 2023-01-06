@@ -4,7 +4,7 @@
 		'meta_description' => 'Multi-Lingual Blog in PHP and MySQLi',
 		'meta_keywords' => 'Multi-Lingual,Blog,PHP,MySQLi',
 		'jempson' => 'Jempson Louis Jean',
-		'logo' => 'Retrouve Objets perdus',
+		'logo' => 'Retrouve Document perdus',
 		'accueil' => 'Accueil',
 		'apropos' => 'À-propos',
 		'contact' => 'contactez-nous',
@@ -34,9 +34,20 @@
 		'msg_select' => 'Sélectionné Pays',
 		'parametre' => 'Paramètre',
 		'profile' => 'Mon compte',
+		'modifier_profile' => 'Actualiser votre profile',
+		'soliciter_Ac' => 'Sollicité activation',
 		'logout' => 'Déconnecter',
-		'title_post' => 'Publier un objet perdu',
-
+		'title_post' => 'Publier un document perdu',
+		
+		'form' => 'Formulaire',
+		'form_nom' => 'Nom',
+		'form_categorie' => 'Catégorie',
+		'form_recupere' => 'Récupéré',
+		'form_description' => 'Description',
+		'form_observation' => 'Observation',
+		'form_img' => 'Additionner image',
+		'form_vis_img' => 'Visualiser image',
+		'btn_form' => 'Publier',
 
 
 

@@ -29,68 +29,10 @@ $(document).ready(function () {
 
     // ########################################### //
 
-    const signUpButton = document.getElementById('Inscrever');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
-
-    signUpButton.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-    });
-
-    $("#cpf_cnpj").keydown(function(){
-        try {
-            $("#cpf_cnpj").unmask();
-        } catch (e) {}
-    
-        var tamanho = $("#cpf_cnpj").val().length;
-    
-        if(tamanho < 11){
-            $("#cpf_cnpj").mask("999.999.999-99");
-        } else {
-            $("#cpf_cnpj").mask("99.999.999/9999-99");
-        }
-    
-        var elem = this;
-        setTimeout(function(){
-            elem.selectionStart = elem.selectionEnd = 10000;
-        }, 0);
-        
-        var currentValue = $(this).val();
-        $(this).val('');
-        $(this).val(currentValue);
-    });
-
-    $("#cpfCnpj").keydown(function(){
-        try {
-            $("#cpfCnpj").unmask();
-        } catch (e) {}
-    
-        var tamanho2 = $("#cpfCnpj").val().length;
-    
-        if(tamanho2 < 11){
-            $("#cpfCnpj").mask("999.999.999-99");
-        } else {
-            $("#cpfCnpj").mask("99.999.999/9999-99");
-        }
-    
-        var elem = this;
-        setTimeout(function(){
-            elem.selectionStart = elem.selectionEnd = 10000;
-        }, 0);
-        
-        var currentValue = $(this).val();
-        $(this).val('');
-        $(this).val(currentValue);
-    });
-
     $("#modepasse").keyup(function(){
         var modepasse = $('#modepasse').val();
         var valid = modepasse.length;
-        console.log(modepasse)
+
         if(!valid){
             $('#modepasse').css("border", "solid 1px #CACBCA");  
         }else if(valid <= 3){
@@ -152,7 +94,6 @@ $(document).ready(function () {
         var numero = $('#numero').val();
         var modepasse = $('#modepasse').val();
         var repModepasse = $('#rep_modepasse').val();
-
         var form = {
             nome,
             email,
@@ -170,8 +111,6 @@ $(document).ready(function () {
                 $('#rep_modepasse').css("border", "solid 1px red");
                 alert('modepasse diferant')
             }else{
-
-                console.log(form);
                 $.ajax({
                     type: 'POST',
                     dataType: 'json',
@@ -185,57 +124,6 @@ $(document).ready(function () {
                 return retorno;
             }
         }
-
-        // if(!nome || !email || !telefone || !pays || !adresse || !numero || modepasse || repModepasse){
-
-        //     alert('Todos os campos estão obligatorio');
-
-        // }else if(repModepasse != modepasse){
-    
-        //     $('#rep_modepasse').css("border", "solid 1px red");
-        //     alert('Senha estão diferente')
-
-        // }else{
-    
-        //     var form = {
-        //         nome,
-        //         email,
-        //         telefone,
-        //         pays,
-        //         adresse,
-        //         numero,
-        //         modepasse
-        //     }
-
-        //     console.log(form)
-    
-        //     $.ajax({
-        //         type: 'POST',
-        //         dataType: 'json',
-        //         url: 'php/registra_usuario.php',
-        //         async: false,
-        //         data: registro,
-        //         success: function (response) {
-        //             setTimeout(function () {
-        //                 window.location.reload();
-        //             }, 1000);
-                    
-        //         },
-        //     });
-
-        //     $.ajax({
-        //         type: 'POST',
-        //         dataType: 'json',
-        //         url: './plateforme/php/creer_compt.php',
-        //         async: false,
-        //         data: form,
-        //         success: function (response) {
-        //             setTimeout(function () {
-        //                 window.location.reload();
-        //             }, 1000);
-        //         },
-        //     });
-        // }
 
     });
 

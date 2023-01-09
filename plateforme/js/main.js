@@ -1,5 +1,16 @@
 $(document).ready(function(){
 
+    var myVar = setInterval(myTimer, 1000);
+    function myTimer(){
+        var d = new Date();
+        var x = d.toLocaleTimeString();
+        $('.heur').html(x);
+        var o = $('.heur').text();
+        if(o === '14:19:00'){
+            //alert('bonjour ceci est une alert pour vous avertir ...');
+        }
+    }
+
     var idUs = $('#idUs').val()
 
     $('#imgVisor').attr('src', '../../img/article.jpg');

@@ -1,21 +1,24 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header("Content-type: application/json; charset=utf-8");
-require_once '../../plateform/conect/ConexaoMySQL.php';
+require_once '../../plateforme/conect/ConexaoMySQL.php';
 $db = ConexaoMySQL::getInstance();
 $db->exec("set names utf8");
 
-$login = $_REQUEST['login'];
-$senhaPadrao = $_REQUEST['senhaPadrao'];
-$novaSenCript = md5($senhaPadrao);
+$users = $_REQUEST['users'];
+$password = $_REQUEST['modepass'];
 
-// var_dump($novaSenCript);die;
+if($password){
+    $novaSenCript = md5($password);
+}else{
+    $novaSenCript = md5('Docpd123@');
+}
 
-$sql ="UPDATE user SET senha = ?WHERE login = ?";
+$sql ="UPDATE user SET password = ? WHERE id = ?";
 
 $arrayParametros = [
     $novaSenCript,
-    $login
+    $users
 ];
 
 $stmt = $db->prepare($sql);

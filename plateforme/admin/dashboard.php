@@ -100,7 +100,7 @@
 					</a>
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 						<li>
-							<a class="dropdown-item" href="#"><?php echo $lang['soliciter_Ac'] ?></a>
+							<a class="dropdown-item" href="../../pages/active_compts.php"><?php echo $lang['soliciter_Ac'] ?></a>
 						</li>
 						
 					</ul>
@@ -132,7 +132,9 @@
 						<li>
 							<a class="dropdown-item" href="../../pages/profile.php"><i class="fas fa-user-edit"></i> <?php echo $lang['profile'] ?></a>
 						</li>
-
+						<li>
+							<a class="dropdown-item" href="../../pages/modepasse.php"><i class="fas fa-lock-open"></i> <?php echo $lang['btn_modifye_password'] ?></a>
+						</li>
 						<li>
 							<a class="dropdown-item" href="../../plateforme/in/logout.php"><i class="fas fa-power-off"></i> <?php echo $lang['logout'] ?></a>
 						</li>
@@ -208,10 +210,18 @@
 											<input type="number" id="telefone" class="form-control form-control-sm" placeholder="<?php echo $lang['telefone_log'] ?>"/>
 										</div>
 									</div>
-									<div class="col-md-12">
+									<div class="col-md-10">
 										<div class="form-outline">
 											<label class="form-label" for="form_observation"><?php echo $lang['form_observation'] ?></label>
 											<textarea class="form-control form-control-sm" id="observation" rows="3" placeholder="<?php echo $lang['form_observation'] ?>"></textarea>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-outline">
+											<label class="form-label" for="form_vis_img"><?php echo $lang['form_vis_img'] ?></label>
+											<div class="visol">
+												<img id="imgVisor" src="#" alt="">
+											</div>
 										</div>
 									</div>
 		
@@ -235,18 +245,29 @@
 								</div>
 								
 								<button type="button" id="publier" class="btn btn-primary btn-sm"><?php echo $lang['btn_form'] ?></button>
-								<button type="button" id="limpar" class="btn btn-danger btn-sm">Limpa Campos</button>
+								<button type="button" id="limpar" class="btn btn-danger btn-sm"><?php echo $lang['btn_vide_camp'] ?></button>
 							</form>
 							
 						</div>
 					</div>
 				</div>
 				<div class="right shadow">
-					<span><?php echo $lang['form_vis_img'] ?></span>
-					<hr>
-					<div class="visol">
-						<img id="imgVisor" src="#" alt="">
+					<div>
+						<?php
+							date_default_timezone_set('America/Sao_Paulo');
+							$date = date('d/m/Y');
+						?>
+						<label>
+							<i class="fas fa-calendar-alt me-lg-1"></i>
+							<span class="me-lg-3"><?= strtoupper($date) ?></span>
+						</label>
+						<i class="fas fa-exchange-alt me-lg-3"></i>
+						<label>
+							<i class="far fa-clock me-lg-1"></i><span class="heur"></span>
+						</label>
 					</div>
+					<hr>
+					
 					<br>
 					<hr>
 				</div>

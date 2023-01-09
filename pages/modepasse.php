@@ -165,65 +165,36 @@
 	<br>
 	<div class="container justify-content-between">
 		<div class=''>
-			<h4 class="title"><i class="fas fa-cogs me-lg-2"></i><?php echo $lang['modifier_profile'] ?></h4>
+			<h4 class="title"><i class="fas fa-key me-lg-2"></i><?php echo $lang['btn_modifye_password'] ?></h4>
 			<hr>
 
 			<div class="group">
 				<div class="left shadow-2">
 					<div class='card'>
 						<div class='card-body'>
-							<h5 class="card-title"><?php echo $lang['msg_donne_P'] ?></h5>
+							<h5 class="card-title"><?php echo $lang['msg_nouv_password'] ?></h5>
 							<hr>
 							<form>
 								<div class="row mb-4">
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="nom"><?php echo $lang['form_nom'] ?></label>
-											<input type="text" id="nom" class="form-control form-control-sm" placeholder="<?php echo $user->nome ?>"/>
-										</div>
-									</div>
 									<div class="col-md-6">
 										<div class="form-outline">
-											<label class="form-label" for="select_pais"><?php echo $lang['msg_select'] ?></label>
-											<select id="sel_pais" class="form-control form-control-sm">
-												<option  value=""><?php echo $lang['msg_select'] ?></option>
+											<label class="form-label" for="select_pais"><?php echo $lang['sel_user'] ?></label>
+											<select id="sel_users" class="form-control form-control-sm">
+												<option  value=""><?php echo $lang['sel_user'] ?></option>
 											</select>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-outline">
-											<label class="form-label" for="telefone"><?php echo $lang['telefone_log'] ?></label>
-											<input type="trxt" id="telefone" class="form-control form-control-sm" placeholder="<?php echo $user->telefone ?>"/>
+											<label class="form-label" for="nom"><?php echo $lang['mot_de_passe'] ?></label>
+											<input type="password" id="altr_password" class="form-control form-control-sm" placeholder="<?php echo $lang['mot_de_passe'] ?>"/>
 										</div>
 									</div>
-									<div class="col-md-8">
-										<label class="form-label" for="adresse"><?php echo $lang['adresse'] ?></label>
-										<div class="form-outline">
-											<input type="text" id="adresse" class="form-control form-control-sm" placeholder="<?php echo $user->adresse ?>"/>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-outline">
-											<label class="form-label" for="numero"><?php echo $lang['numero'] ?></label>
-											<input type="text" id="numero" class="form-control form-control-sm" placeholder="<?php echo $user->numero ?>"/>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="email"><?php echo $lang['email'] ?></label>
-											<input type="text" id="email" class="form-control form-control-sm" placeholder="<?php echo $user->email ?>"/>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="mot_de_passe">-----------------------------</label>
-											<input type="hidden" id="" class="form-control form-control-sm"/>
-										</div>
-									</div>
+									
 								</div>
 								
-								<button type="button" id="update_profil" class="btn btn-primary btn-sm"><i class="fas fa-redo-alt me-lg-2"></i><?php echo $lang['btn_update'] ?></button>
-								<!-- <button type="button" id="limpar" class="btn btn-danger btn-sm"><?php echo $lang['btn_vide_camp'] ?></button> -->
+								<button type="button" id="update_password" class="btn btn-primary btn-sm"><i class="fas fa-redo-alt me-lg-2"></i><?php echo $lang['btn_update'] ?></button>
+								<button type="button" id="limparMod" class="btn btn-danger btn-sm"><?php echo $lang['btn_vide_camp'] ?></button>
 							</form>
 							
 						</div>

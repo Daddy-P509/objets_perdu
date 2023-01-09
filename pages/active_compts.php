@@ -165,67 +165,127 @@
 	<br>
 	<div class="container justify-content-between">
 		<div class=''>
-			<h4 class="title"><i class="fas fa-cogs me-lg-2"></i><?php echo $lang['modifier_profile'] ?></h4>
+			<h4 class="title"><i class="fas fa-check me-lg-2"></i><?php echo $lang['active_compts'] ?></h4>
 			<hr>
 
 			<div class="group">
 				<div class="left shadow-2">
 					<div class='card'>
 						<div class='card-body'>
-							<h5 class="card-title"><?php echo $lang['msg_donne_P'] ?></h5>
+							<h5 class="card-title"><?php echo $lang['list_compts_act'] ?></h5>
 							<hr>
-							<form>
-								<div class="row mb-4">
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="nom"><?php echo $lang['form_nom'] ?></label>
-											<input type="text" id="nom" class="form-control form-control-sm" placeholder="<?php echo $user->nome ?>"/>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-outline">
-											<label class="form-label" for="select_pais"><?php echo $lang['msg_select'] ?></label>
-											<select id="sel_pais" class="form-control form-control-sm">
-												<option  value=""><?php echo $lang['msg_select'] ?></option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-outline">
-											<label class="form-label" for="telefone"><?php echo $lang['telefone_log'] ?></label>
-											<input type="trxt" id="telefone" class="form-control form-control-sm" placeholder="<?php echo $user->telefone ?>"/>
-										</div>
-									</div>
-									<div class="col-md-8">
-										<label class="form-label" for="adresse"><?php echo $lang['adresse'] ?></label>
-										<div class="form-outline">
-											<input type="text" id="adresse" class="form-control form-control-sm" placeholder="<?php echo $user->adresse ?>"/>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-outline">
-											<label class="form-label" for="numero"><?php echo $lang['numero'] ?></label>
-											<input type="text" id="numero" class="form-control form-control-sm" placeholder="<?php echo $user->numero ?>"/>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="email"><?php echo $lang['email'] ?></label>
-											<input type="text" id="email" class="form-control form-control-sm" placeholder="<?php echo $user->email ?>"/>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="mot_de_passe">-----------------------------</label>
-											<input type="hidden" id="" class="form-control form-control-sm"/>
-										</div>
-									</div>
-								</div>
-								
-								<button type="button" id="update_profil" class="btn btn-primary btn-sm"><i class="fas fa-redo-alt me-lg-2"></i><?php echo $lang['btn_update'] ?></button>
-								<!-- <button type="button" id="limpar" class="btn btn-danger btn-sm"><?php echo $lang['btn_vide_camp'] ?></button> -->
-							</form>
-							
+							<div class="table-responsive">
+								<table class="table-sm align-middle mb-0 bg-white">
+									<thead class="bg-light">
+										<tr>
+											<th><?php echo $lang['_nom'] ?> & <?php echo $lang['_email'] ?></th>
+											<th><?php echo $lang['_pays'] ?></th>
+											<th><?php echo $lang['_status'] ?></th>
+											<th><?php echo $lang['_telefone'] ?></th>
+											<th><?php echo $lang['_date'] ?></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+										<td>
+											<div class="d-flex align-items-center">
+											<img
+												src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+												alt=""
+												style="width: 45px; height: 45px"
+												class="rounded-circle"
+												/>
+											<div class="ms-3">
+												<p class="fw-bold mb-1">John Doe</p>
+												<p class="text-muted mb-0">john.doe@gmail.com</p>
+											</div>
+											</div>
+										</td>
+										<td>
+											<p class="fw-normal mb-1">Software engineer</p>
+											<p class="text-muted mb-0">IT department</p>
+										</td>
+										<td>
+											<span class="badge badge-success rounded-pill d-inline">Active</span>
+										</td>
+										<td>Senior</td>
+										<td>
+											<button type="button" class="btn btn-link btn-sm btn-rounded">
+											Edit
+											</button>
+										</td>
+										</tr>
+										<tr>
+										<td>
+											<div class="d-flex align-items-center">
+											<img
+												src="https://mdbootstrap.com/img/new/avatars/6.jpg"
+												class="rounded-circle"
+												alt=""
+												style="width: 45px; height: 45px"
+												/>
+											<div class="ms-3">
+												<p class="fw-bold mb-1">Alex Ray</p>
+												<p class="text-muted mb-0">alex.ray@gmail.com</p>
+											</div>
+											</div>
+										</td>
+										<td>
+											<p class="fw-normal mb-1">Consultant</p>
+											<p class="text-muted mb-0">Finance</p>
+										</td>
+										<td>
+											<span class="badge badge-primary rounded-pill d-inline"
+												>Onboarding</span
+											>
+										</td>
+										<td>Junior</td>
+										<td>
+											<button
+													type="button"
+													class="btn btn-link btn-rounded btn-sm fw-bold"
+													data-mdb-ripple-color="dark"
+													>
+											Edit
+											</button>
+										</td>
+										</tr>
+										<tr>
+										<td>
+											<div class="d-flex align-items-center">
+											<img
+												src="https://mdbootstrap.com/img/new/avatars/7.jpg"
+												class="rounded-circle"
+												alt=""
+												style="width: 45px; height: 45px"
+												/>
+											<div class="ms-3">
+												<p class="fw-bold mb-1">Kate Hunington</p>
+												<p class="text-muted mb-0">kate.hunington@gmail.com</p>
+											</div>
+											</div>
+										</td>
+										<td>
+											<p class="fw-normal mb-1">Designer</p>
+											<p class="text-muted mb-0">UI/UX</p>
+										</td>
+										<td>
+											<span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
+										</td>
+										<td>Senior</td>
+										<td>
+											<button
+													type="button"
+													class="btn btn-link btn-rounded btn-sm fw-bold"
+													data-mdb-ripple-color="dark"
+													>
+											Edit
+											</button>
+										</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>

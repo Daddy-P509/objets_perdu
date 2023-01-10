@@ -174,4 +174,91 @@ $(document).ready(function(){
         });
     }
 
+    /* ####################### IMPRIMIR LISTAR DE DOCUMENTO ########################### */
+
+    function buscarFuncionario(){
+        var retorno = false;
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: `../../plateforme/php/buscar_lista_documentos.php`,
+            async: false,
+            data: null,
+            success: function (data) {
+                retorno = data
+                imprimirListarUsuario(data)
+            }
+        });
+
+        return retorno;
+    }
+    
+    buscarFuncionario()
+
+    function imprimirListarUsuario(data){
+        var linhas = [];
+        var img = "../../img/article.jpg";
+        data.forEach( el => {
+
+            // console.log(el);
+
+            if(el.url == "http://localhost/omega/plateform/php/abrir_arquivos.php?id="){
+                src = img;
+            }else{
+                src = el.url;
+            }
+
+            // if(el.statu_ == '1'){
+            //     statu = "Admin"
+            //     addClass = "badge badge-success rounded-pill d-inline"
+            // }else{
+            //     statu = "Usuario"
+            //     addClass = "badge badge-warning rounded-pill d-inline"
+            // }
+
+            // if(el.active == '1'){
+            //     active_ = "Ligado"
+            //     addClass_ = "badge badge-success rounded-pill d-inline"
+            // }else{
+            //     active_ = "Desligardo"
+            //     addClass_ = "badge badge-warning rounded-pill d-inline"
+            // }
+
+            var linha = `<div>`;
+                linha +=`<div class="col-md-4">`;
+                    linha +=`<img src="../../img/article.jpg" alt="" class="img-fluid rounded-start"/>`;
+                linha +=`</div>`;
+
+                linha +=`<div class="col-md-8">`;
+                    linha +=`<div class="card-body">`;
+                        linha +=`<h5 class="card-title">Card title</h5>`;
+                        linha +=`<p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.
+                        </p>`;
+
+                        linha +=`<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>`;
+
+                        linha +=`<hr>`;
+
+                    linha +=`</div>`;
+                linha +=`</div>`;
+            
+            
+                // linha +=`<td>${el.id}</td>`;
+                // linha +=`<td>`;
+                //     linha +=`<div class="d-flex align-items-center">`;
+                //         linha +=`<div class="ms-3">`;
+                //             linha +=`<p class="fw-bold mb-1">${el.login}</p>`;
+                //             linha +=`<p class="text-muted mb-0">${el.email}</p>`;
+                //         linha +=`<div>`;
+                //     linha +=`</div>`;
+                // linha +=`</td>`;
+               
+            linha +=`</div>`;
+            linhas.push(linha);
+        })
+
+        $('#doc').append(linhas);
+    }
+
 });

@@ -15,7 +15,6 @@ $(document).ready(function(){
 
     function buscarAllPais() {
         var retorno = false;
-
         $.ajax({
             type: 'GET',
             dataType: 'json',
@@ -117,7 +116,6 @@ $(document).ready(function(){
     $("#sel_users").append(users);
 
     $('#update_password').click(function(){
-
         var users = $('#sel_users').val()
         var retorno = false;
 
@@ -148,5 +146,65 @@ $(document).ready(function(){
         $('#sel_users').val('');
         $('#altr_password').val('');
     });
+
+    function buscarAllActivates() {
+        var retorno = false;
+        
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: `../plateforme/php/activar.php`,
+            async: false,
+            data: null,
+            success: function (data) {
+                retorno = data
+                var linhas = [];
+                data.forEach(el => {
+                   if(el.active == 0){
+                       active = $('.titre').text();
+                   }
+                    var linha = "<div class='grp'>";
+                        linha +="<div class='cabesa'>";
+                            linha +="<div class='titre'>";
+                                linha +=`<h6>${$('.titre').text()}</h6>`;
+                            linha +="</div>";
+
+                            linha +="<div class='bt'>";
+                                linha +=`<button type='button' class='btn btn-info btn-sm'><i class='fas fa-check me-lg-2'></i>${$('.btn_active').text()}</button>`;
+                            linha +="</div>";
+                        linha +="</div>";   
+
+                        linha +="<div class='cors'>";
+                            linha +="<div class='ms-3'>";
+                                linha +="<p class='fw-bold mb-0'> <i class='far fa-user me-lg-2'> | </i> "+ el.nome +"</p>";
+                            linha +="</div>";
+                            
+                            linha +="<div class='statu'>";
+                                linha +="<span class='badge badge-warning rounded-pill d-inline'>"+ active +"</span>";
+                            linha +="</div>";
+    
+                            linha +="<div class='tel'> <i class='fas fa-phone'></i> "+ el.telefone +"</div>";
+                            linha +="<div class='date'> <i class='fas fa-calendar-alt'></i> "+ el.date_ +"</div>";
+                        linha +="</div>";
+
+                        linha +="<div class='pied'>";
+                            linha +="<div class='ms-3'>";
+                                linha +="<p class=' mb-0'> <i class='far fa-envelope me-lg-2'> </i> "+ el.email +"</p>";
+                            linha +="</div>";
+                        linha +="</div>";
+                    linha +="</div>";
+                    linha +="<hr>";
+                    
+                    linhas.push(linha);
+                   
+                });
+                $('.corpos').append(linhas);
+            },
+        });
+        return retorno;
+    }
+
+    buscarAllActivates();
+    
 
 });

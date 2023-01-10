@@ -71,6 +71,38 @@ label{
     border-radius: 8px;
 }
 
+/* ############################### PARTI ACTIVATION ############################## */
+.grp {
+    margin: 10px;
+    border-bottom: solid 1px #0488b3;
+    border-top: solid 10px cornflowerblue;
+    border-radius: 10px;
+    height: auto;
+}
+
+.cabesa {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px lightblue;
+    padding: 5px;
+}
+
+.cors{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.scrollspy{
+    position: relative;
+    height: 560px;
+    overflow: auto;
+}
+
+#doc{
+    border-top: solid 3px black;
+    border-radius: 7px;
+}
 
 /* .shadow {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
@@ -102,4 +134,11 @@ label{
         text-align: center;
     }
 
+    .cors {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: baseline;
+    }
 }

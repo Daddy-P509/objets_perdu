@@ -165,89 +165,37 @@
 	<br>
 	<div class="container justify-content-between">
 		<div class=''>
-			<h4 class="title"><?php echo $lang['title_post'] ?></h4>
+			<div class="input-group">
+				<h4 class="title"><a href="#forme" data-mdb-toggle="modal" data-mdb-target="#exampleModal"><?php echo $lang['title_post'] ?></a></h4>
+				<div class="form-outline">
+					<input type="search" id="form1" class="form-control form-control-sm" placeholder="Type query" aria-label="Search" />
+				</div>
+				<button type="button" class="btn btn-primary">
+					<i class="fas fa-search"></i>
+				</button>
+			</div>
 			<hr>
 
 			<div class="group">
 				<div class="left shadow-2">
-					<div class='card'>
-						<div class='card-body'>
-							<h5 class="card-title"><?php echo $lang['form'] ?></h5>
-							<form>
-								<div class="row mb-4">
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="nom"><?php echo $lang['form_nom'] ?></label>
-											<input type="text" id="nom" class="form-control form-control-sm" placeholder="<?php echo $lang['form_nom'] ?>"/>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-outline">
-											<label class="form-label" for="select_pais"><?php echo $lang['msg_select'] ?></label>
-											<select id="select_pais" class="form-control form-control-sm">
-												<option value=""><?php echo $lang['msg_select'] ?></option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<label class="form-label" for="categorie"><?php echo $lang['form_categorie'] ?></label>
-										<div class="form-outline">
-											<input type="text" id="categorie" class="form-control form-control-sm" placeholder="<?php echo $lang['form_categorie'] ?>"/>
-											<!-- <select id="categorie" class="form-control form-control-sm">
-												<option value=""><?php echo $lang['form_categorie'] ?></option>
-											</select> -->
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="description"><?php echo $lang['form_description'] ?></label>
-											<textarea class="form-control form-control-sm" id="description" rows="2" placeholder="<?php echo $lang['form_description'] ?>"></textarea>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-outline">
-											<label class="form-label" for="telefone"><?php echo $lang['telefone_log'] ?></label>
-											<input type="number" id="telefone" class="form-control form-control-sm" placeholder="<?php echo $lang['telefone_log'] ?>"/>
-										</div>
-									</div>
-									<div class="col-md-10">
-										<div class="form-outline">
-											<label class="form-label" for="form_observation"><?php echo $lang['form_observation'] ?></label>
-											<textarea class="form-control form-control-sm" id="observation" rows="3" placeholder="<?php echo $lang['form_observation'] ?>"></textarea>
-										</div>
-									</div>
-									<div class="col-md-2">
-										<div class="form-outline">
-											<label class="form-label" for="form_vis_img"><?php echo $lang['form_vis_img'] ?></label>
-											<div class="visol">
-												<img id="imgVisor" src="#" alt="">
-											</div>
-										</div>
-									</div>
-		
+					<div class="card mb-3" style="max-width: 780px;">
+						<div id="doc" class="row g-0">
+							<!-- <div class="col-md-4">
+								<img src="../../img/article.jpg" alt="Trendy Pants and Shoes" class="img-fluid rounded-start"/>
+							</div>
+							<div class="col-md-8">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<p class="card-text">
+									This is a wider card with supporting text below as a natural lead-in to
+									additional content. This content is a little bit longer.
+									</p>
+									<p class="card-text">
+									<small class="text-muted">Last updated 3 mins ago</small>
+									</p>
+									<hr>
 								</div>
-		
-								<div class="row mb-4">
-									<div class="col-md-6">
-										<label class="form-label" for="nom">--------------------</label>
-										<div class="form-outline">
-											<label class="form-check-label" for="form6Example8"><?php echo $lang['form_recupere'] ?></label>
-											<input class="form-check-input me-2" type="checkbox" value="0" id="recupere" />
-										</div>
-									</div>
-									<div class="col-md-6">
-										<label class="form-label" for="nom"><?php echo $lang['form_img'] ?></label>
-										<div class="form-outline">
-											<input type="file" class="form-control form-control-sm" id="fichero" />
-										</div>
-									</div>
-		
-								</div>
-								
-								<button type="button" id="publier" class="btn btn-primary btn-sm"><?php echo $lang['btn_form'] ?></button>
-								<button type="button" id="limpar" class="btn btn-danger btn-sm"><?php echo $lang['btn_vide_camp'] ?></button>
-							</form>
-							
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -276,6 +224,96 @@
 				
 			
 		</div>
+
+		<!-- ############################## FORMULAIRE ###################### -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"><?php echo $lang['form'] ?></h5>
+					<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="row mb-4">
+							<div class="col-md-12">
+								<div class="form-outline">
+									<label class="form-label" for="nom"><?php echo $lang['form_nom'] ?></label>
+									<input type="text" id="nom" class="form-control form-control-sm" placeholder="<?php echo $lang['form_nom'] ?>"/>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-outline">
+									<label class="form-label" for="select_pais"><?php echo $lang['msg_select'] ?></label>
+									<select id="select_pais" class="form-control form-control-sm">
+										<option value=""><?php echo $lang['msg_select'] ?></option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label class="form-label" for="categorie"><?php echo $lang['form_categorie'] ?></label>
+								<div class="form-outline">
+									<input type="text" id="categorie" class="form-control form-control-sm" placeholder="<?php echo $lang['form_categorie'] ?>"/>
+									<!-- <select id="categorie" class="form-control form-control-sm">
+										<option value=""><?php echo $lang['form_categorie'] ?></option>
+									</select> -->
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-outline">
+									<label class="form-label" for="description"><?php echo $lang['form_description'] ?></label>
+									<textarea class="form-control form-control-sm" id="description" rows="2" placeholder="<?php echo $lang['form_description'] ?>"></textarea>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-outline">
+									<label class="form-label" for="telefone"><?php echo $lang['telefone_log'] ?></label>
+									<input type="number" id="telefone" class="form-control form-control-sm" placeholder="<?php echo $lang['telefone_log'] ?>"/>
+								</div>
+							</div>
+							<div class="col-md-10">
+								<div class="form-outline">
+									<label class="form-label" for="form_observation"><?php echo $lang['form_observation'] ?></label>
+									<textarea class="form-control form-control-sm" id="observation" rows="3" placeholder="<?php echo $lang['form_observation'] ?>"></textarea>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-outline">
+									<label class="form-label" for="form_vis_img"><?php echo $lang['form_vis_img'] ?></label>
+									<div class="visol">
+										<img id="imgVisor" src="#" alt="">
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="row mb-4">
+							<div class="col-md-6">
+								<label class="form-label" for="nom">--------------------</label>
+								<div class="form-outline">
+									<label class="form-check-label" for="form6Example8"><?php echo $lang['form_recupere'] ?></label>
+									<input class="form-check-input me-2" type="checkbox" value="0" id="recupere" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label class="form-label" for="nom"><?php echo $lang['form_img'] ?></label>
+								<div class="form-outline">
+									<input type="file" class="form-control form-control-sm" id="fichero" />
+								</div>
+							</div>
+
+						</div>
+						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="publier" class="btn btn-primary btn-sm"><?php echo $lang['btn_form'] ?></button>
+					<button type="button" id="limpar" class="btn btn-danger btn-sm"><?php echo $lang['btn_vide_camp'] ?></button>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 	<script src="../../plateforme/js/jquery.js"></script>

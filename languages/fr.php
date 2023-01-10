@@ -38,7 +38,7 @@
 		'profile' => 'Mon compte',
 		'modifier_profile' => 'Actualiser votre profile',
 		'soliciter_Ac' => 'Sollicité activation',
-		'active_compts' => 'Activation des comptes',
+		'active_compts' => 'Activation le comptes',
 		'list_compts_act' => "Liste des comtes attente d'activation",
 		'logout' => 'Déconnecter',
 		'title_post' => 'Publier un document perdu',

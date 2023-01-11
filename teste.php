@@ -4,166 +4,218 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="./MDB5/css/mdb.min.css">
-
-    <script src="./MDB5/js/mdb.min.js"></script>
-    <title>Document</title>
+    <title>Z-Index</title>
 </head>
 <body>
-
-<div class="container">
-    <!-- Login -->
-    <br><br>
-    <div class="card" style="background-color: #d6d9db; width: 30%; margin: auto; padding: 20px;">
-        <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-            <li class="nav-item" role="presentation">
-            <a
-                class="nav-link active"
-                id="tab-login"
-                data-mdb-toggle="pill"
-                href="#pills-login"
-                role="tab"
-                aria-controls="pills-login"
-                aria-selected="true"
-                >Login</a
-            >
-            </li>
-            <li class="nav-item" role="presentation">
-            <a
-                class="nav-link"
-                id="tab-register"
-                data-mdb-toggle="pill"
-                href="#pills-register"
-                role="tab"
-                aria-controls="pills-register"
-                aria-selected="false"
-                >Register</a
-            >
-            </li>
-        </ul>
+    
+    <style>
+        header {
+            position: fixed !important;
+            width: 100% !important;
+            background-color: #d1d1d1;
+        }
         
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                <form>
-                    <div class="text-center mb-3">
-                    <p>Sign in with:</p>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-    
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-google"></i>
-                    </button>
-    
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-twitter"></i>
-                    </button>
-    
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-github"></i>
-                    </button>
-                    </div>
-    
-                    <p class="text-center">or:</p>
-    
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                    <input type="email" id="loginName" class="form-control" />
-                    <label class="form-label" for="loginName">Email or username</label>
-                    </div>
-    
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                    <input type="password" id="loginPassword" class="form-control" />
-                    <label class="form-label" for="loginPassword">Password</label>
-                    </div>
-    
-                    <!-- 2 column grid layout -->
-                    <div class="row mb-4">
-                        <div class="col-md-6 d-flex justify-content-center">
-                        <!-- Checkbox -->
-                        <div class="form-check mb-3 mb-md-0">
-                        <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-                        <label class="form-check-label" for="loginCheck"> Remember me </label>
-                        </div>
-                    </div>
-    
-                    <div class="col-md-6 d-flex justify-content-center">
-                        <!-- Simple link -->
-                        <a href="#!">Forgot password?</a>
-                    </div>
-                    </div>
-    
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-    
-                    <!-- Register buttons -->
-                    <div class="text-center">
-                    <p>Not a member? <a href="#!">Register</a></p>
-                    </div>
-                </form>
-            </div>
+        /* nav{
+            height: 65px;
 
-            <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                <form>
-                    <div class="text-center mb-3">
-                    <p>Sign up with:</p>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
+        } */
+
+        div .content{
+            width: 60%;
+            margin: 0 auto;
+            height: 1200px;
+            background-color: #e3e3e3;
+            border: solid 1px;
+        }
+
+        
+    </style>
     
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-google"></i>
-                    </button>
-    
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-twitter"></i>
-                    </button>
-    
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-github"></i>
-                    </button>
-                    </div>
-    
-                    <p class="text-center">or:</p>
-    
-                    <!-- Name input -->
-                    <div class="form-outline mb-4">
-                    <input type="text" id="registerName" class="form-control" />
-                    <label class="form-label" for="registerName">Name</label>
-                    </div>
-    
-                    <!-- Username input -->
-                    <div class="form-outline mb-4">
-                    <input type="text" id="registerUsername" class="form-control" />
-                    <label class="form-label" for="registerUsername">Username</label>
-                    </div>
-    
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                    <input type="email" id="registerEmail" class="form-control" />
-                    <label class="form-label" for="registerEmail">Email</label>
-                    </div>
-    
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                    <input type="password" id="registerPassword" class="form-control" />
-                    <label class="form-label" for="registerPassword">Password</label>
-                    </div>
-    
-                    <!-- Repeat Password input -->
-                    <div class="form-outline mb-4">
-                        <input type="password" id="registerRepeatPassword" class="form-control" />
-                        <label class="form-label" for="registerRepeatPassword">Repeat password</label>
-                    </div>
-    
-                    <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+    <header>
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid justify-content-between">
+                <!-- Left elements -->
+                <div class="d-flex">
+                <!-- Brand -->
+                <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+                    <img
+                    src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+                    height="20"
+                    alt="MDB Logo"
+                    loading="lazy"
+                    style="margin-top: 2px;"
+                    />
+                </a>
+
+                <!-- Search form -->
+                <form class="input-group w-auto my-auto d-none d-sm-flex">
+                    <input
+                    autocomplete="off"
+                    type="search"
+                    class="form-control rounded"
+                    placeholder="Search"
+                    style="min-width: 125px;"
+                    />
+                    <span class="input-group-text border-0 d-none d-lg-flex"
+                    ><i class="fas fa-search"></i
+                    ></span>
                 </form>
+                </div>
+                <!-- Left elements -->
+
+                <!-- Center elements -->
+                <ul class="navbar-nav flex-row d-none d-md-flex">
+                <li class="nav-item me-3 me-lg-1 active">
+                    <a class="nav-link" href="#">
+                    <span><i class="fas fa-home fa-lg"></i></span>
+                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                </li>
+
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link" href="#">
+                    <span><i class="fas fa-flag fa-lg"></i></span>
+                    </a>
+                </li>
+
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link" href="#">
+                    <span><i class="fas fa-video fa-lg"></i></span>
+                    </a>
+                </li>
+
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link" href="#">
+                    <span><i class="fas fa-shopping-bag fa-lg"></i></span>
+                    </a>
+                </li>
+
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link" href="#">
+                    <span><i class="fas fa-users fa-lg"></i></span>
+                    <span class="badge rounded-pill badge-notification bg-danger">2</span>
+                    </a>
+                </li>
+                </ul>
+                <!-- Center elements -->
+
+                <!-- Right elements -->
+                <ul class="navbar-nav flex-row">
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                    <img
+                        src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+                        class="rounded-circle"
+                        height="22"
+                        alt="Black and White Portrait of a Man"
+                        loading="lazy"
+                    />
+                    <strong class="d-none d-sm-block ms-1">John</strong>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link" href="#">
+                    <span><i class="fas fa-plus-circle fa-lg"></i></span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-3 me-lg-1">
+                    <a
+                    class="nav-link dropdown-toggle hidden-arrow"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                    >
+                    <i class="fas fa-comments fa-lg"></i>
+
+                    <span class="badge rounded-pill badge-notification bg-danger">6</span>
+                    </a>
+                    <ul
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuLink"
+                    >
+                    <li>
+                        <a class="dropdown-item" href="#">Some news</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Another news</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown me-3 me-lg-1">
+                    <a
+                    class="nav-link dropdown-toggle hidden-arrow"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                    >
+                    <i class="fas fa-bell fa-lg"></i>
+                    <span class="badge rounded-pill badge-notification bg-danger">12</span>
+                    </a>
+                    <ul
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuLink"
+                    >
+                    <li>
+                        <a class="dropdown-item" href="#">Some news</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Another news</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown me-3 me-lg-1">
+                    <a
+                    class="nav-link dropdown-toggle hidden-arrow"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                    >
+                    <i class="fas fa-chevron-circle-down fa-lg"></i>
+                    </a>
+                    <ul
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuLink"
+                    >
+                    <li>
+                        <a class="dropdown-item" href="#">Some news</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Another news</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                    </ul>
+                </li>
+                </ul>
+                <!-- Right elements -->
             </div>
+        </nav>
+        <!-- Navbar -->
+
+    </header>
+
+    <br><br><br><br><br>
+
+    <div class="container">
+        <div class="content">
+
         </div>
     </div>
-</div>
-    
+
 </body>
 </html>

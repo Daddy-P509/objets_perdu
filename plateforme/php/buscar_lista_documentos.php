@@ -10,7 +10,7 @@ $db->exec("set names utf8");
 $stmt = $db->prepare("SELECT ob.id, ob.nome, ob.telefone, ob.pays, ob.description, ob.observation, ob.recupere, ob.date_, im.name, im.type, us.nome 
 AS user, im.objets_id FROM  objets AS ob
 INNER JOIN images AS im ON im.objets_id = ob.id
-INNER JOIN user AS us ON ob.user_id = us.id ORDER BY ob.id");
+INNER JOIN user AS us ON ob.user_id = us.id ORDER BY ob.id DESC");
 
 $stmt->execute();
 $arquivos = $stmt->fetchAll(PDO::FETCH_OBJ);

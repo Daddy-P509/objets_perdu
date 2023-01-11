@@ -35,172 +35,177 @@
     
     <title><?php echo $lang['logo'] ?></title>
 </head>
-<body style="background-color: #ededed;">
-	<!-- Navbar-->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container justify-content-between">
-			<div class="d-flex">
-				<!-- Logo -->
-				<a class="navbar-brand me-2 mb-1 d-flex align-items-center logo" href="#">
-					<?php echo $lang['logo'] ?>
-				</a>
-			</div>
-
-			<!-- Menu -->
-			<ul class="navbar-nav flex-row d-none d-md-flex">
-				<li class="nav-item me-3 me-lg-1 active">
-					<a class="nav-link" href="../../plateforme/admin/dashboard.php?accueil">
-						<span><i class="fas fa-home"></i></span>
-						<?php echo $lang['accueil'] ?>
+<body>
+	<header class="header">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container justify-content-between">
+				<div class="d-flex">
+					<!-- Logo -->
+					<a class="navbar-brand me-2 mb-1 d-flex align-items-center logo" href="#">
+						<?php echo $lang['logo'] ?>
 					</a>
-				</li>
-				<li class="nav-item me-3 me-lg-1">
-					<a class="nav-link" href="../../pages/apropos.php?apropos">
-						<span><i class="far fa-user"></i></span>
-						<?php echo $lang['apropos'] ?>
-					</a>
-				</li>
-				<li class="nav-item me-3 me-lg-1">
-					<a class="nav-link" href="../../pages/contact.php?contact">
-						<span><i class="fas fa-envelope-open-text"></i></span>
-						<?php echo $lang['contact'] ?>
-					</a>
-				</li>
-			</ul>
-
-			<!-- Right elements -->
-			<ul class="navbar-nav flex-row">
-				<!-- <li class="nav-item me-3 me-lg-1">
-					<a class="nav-link d-sm-flex align-items-sm-center" href="#">
-						<img src="./img/oeuil.png" height="20" alt="MDB Logo" loading="lazy" style="margin-top: 2px;" />
-						<strong class="d-none d-sm-block ms-1">JEMPSON LOUIS JEAN</strong>
-					</a>
-				</li> -->
-				<li class="nav-item dropdown me-3 me-lg-1">
-					<a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-						<i class="fas fa-comments fa-lg"></i>
-						<span class="badge rounded-pill badge-notification bg-danger">6</span>
-					</a>
-					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" >
-						<li>
-							<a class="dropdown-item" href="#">Some news</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Another news</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</li>
-					</ul>
-				</li>
-				<li class="nav-item dropdown me-3 me-lg-3">
-					<a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false" >
-						<i class="fas fa-bell fa-lg" title="<?php echo $lang['soliciter_Ac'] ?>"></i>
-						<span class="badge rounded-pill badge-notification bg-danger"><?php echo $rest->cantite ?></span>
-					</a>
-					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-						<li>
-							<a class="dropdown-item" href="../../pages/active_compts.php"><?php echo $lang['soliciter_Ac'] ?></a>
-						</li>
-						
-					</ul>
-				</li>
-			</ul>
-			<ul class="navbar-nav flex-row lang">
-				<!-- LANGUAGES -->
-				<li class="nav-item me-3 me-lg-0">
-					<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=fr">
-						<i class="flag flag-france" title="<?php echo $lang['francais'] ?>"></i>
-					</a>
-				</li>
-				<li class="nav-item me-3 me-lg-0">
-					<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=cr">
-						<i class="flag flag-haiti" title="<?php echo $lang['creole'] ?>"></i>
-					</a>
-				</li>
-				<li class="nav-item me-3 me-lg-0">
-					<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=pt">
-						<i class="flag flag-brazil" title="<?php echo $lang['portugues'] ?>"></i>
-					</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false"> 
-					<i class="fas fa-cog"></i>
-						<?php echo $lang['parametre'] ?> 
-					</a>
-					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-						<li>
-							<a class="dropdown-item" href="../../pages/profile.php"><i class="fas fa-user-edit"></i> <?php echo $lang['profile'] ?></a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="../../pages/modepasse.php"><i class="fas fa-lock-open"></i> <?php echo $lang['btn_modifye_password'] ?></a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="../../plateforme/in/logout.php"><i class="fas fa-power-off"></i> <?php echo $lang['logout'] ?></a>
-						</li>
-					</ul>
-				</li>
-
-			</ul>
-		</div>
-	</nav>
-
-	<nav class="navbar navbar-light" style="background-color: #e5e5e5d6;">
-		<div class="container justify-content-between" style="background-color: #dfdfdf75;">
-			<div class="d-flex">
-				<h5><?php echo $lang['accueil'] ?></h5>
-			</div>
-			<ul class="navbar-nav flex-row">
-				<li class="nav-item me-3 me-lg-1">
-					<a class="nav-link d-sm-flex align-items-sm-center" href="#">
-						<i class="fas fa-user me-lg-3"> | <?php echo $lang['presente'] ?>,
-						<strong class="d-sm-block"><?php echo $user->nome ?></strong></i>
-						<input type="hidden" id="idUs" value="<?php echo $user->id ?>"/>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<br>
-	<div class="container justify-content-between">
-		<div class=''>
-			<div class="input-group">
-				<h4 class="title"><a href="#forme" data-mdb-toggle="modal" data-mdb-target="#exampleModal"><?php echo $lang['title_post'] ?></a></h4>
-				<div class="form-outline">
-					<input type="search" id="form1" class="form-control form-control-sm" placeholder="Type query" aria-label="Search" />
 				</div>
-				<button type="button" class="btn btn-primary">
-					<i class="fas fa-search"></i>
-				</button>
+	
+				<!-- Menu -->
+				<ul class="navbar-nav flex-row d-none d-md-flex">
+					<li class="nav-item me-3 me-lg-1 active">
+						<a class="nav-link" href="../../plateforme/admin/dashboard.php?accueil">
+							<span><i class="fas fa-home"></i></span>
+							<?php echo $lang['accueil'] ?>
+						</a>
+					</li>
+					<li class="nav-item me-3 me-lg-1">
+						<a class="nav-link" href="../../pages/apropos.php?apropos">
+							<span><i class="far fa-user"></i></span>
+							<?php echo $lang['apropos'] ?>
+						</a>
+					</li>
+					<li class="nav-item me-3 me-lg-1">
+						<a class="nav-link" href="../../pages/contact.php?contact">
+							<span><i class="fas fa-envelope-open-text"></i></span>
+							<?php echo $lang['contact'] ?>
+						</a>
+					</li>
+				</ul>
+	
+				<!-- Right elements -->
+				<ul class="navbar-nav flex-row">
+					<!-- <li class="nav-item me-3 me-lg-1">
+						<a class="nav-link d-sm-flex align-items-sm-center" href="#">
+							<img src="./img/oeuil.png" height="20" alt="MDB Logo" loading="lazy" style="margin-top: 2px;" />
+							<strong class="d-none d-sm-block ms-1">JEMPSON LOUIS JEAN</strong>
+						</a>
+					</li> -->
+					<li class="nav-item dropdown me-3 me-lg-1">
+						<a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+							<i class="fas fa-comments fa-lg"></i>
+							<span class="badge rounded-pill badge-notification bg-danger">6</span>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" >
+							<li>
+								<a class="dropdown-item" href="#">Some news</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">Another news</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown me-3 me-lg-3">
+						<a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false" >
+							<i class="fas fa-bell fa-lg" title="<?php echo $lang['soliciter_Ac'] ?>"></i>
+							<span class="badge rounded-pill badge-notification bg-danger"><?php echo $rest->cantite ?></span>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+							<li>
+								<a class="dropdown-item" href="../../pages/active_compts.php"><?php echo $lang['soliciter_Ac'] ?></a>
+							</li>
+							
+						</ul>
+					</li>
+				</ul>
+				<ul class="navbar-nav flex-row lang">
+					<!-- LANGUAGES -->
+					<li class="nav-item me-3 me-lg-0">
+						<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=fr">
+							<i class="flag flag-france" title="<?php echo $lang['francais'] ?>"></i>
+						</a>
+					</li>
+					<li class="nav-item me-3 me-lg-0">
+						<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=cr">
+							<i class="flag flag-haiti" title="<?php echo $lang['creole'] ?>"></i>
+						</a>
+					</li>
+					<li class="nav-item me-3 me-lg-0">
+						<a class="nav-link" href="../../plateforme/admin/dashboard.php?lang=pt">
+							<i class="flag flag-brazil" title="<?php echo $lang['portugues'] ?>"></i>
+						</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false"> 
+						<i class="fas fa-cog"></i>
+							<?php echo $lang['parametre'] ?> 
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+							<li>
+								<a class="dropdown-item" href="../../pages/profile.php"><i class="fas fa-user-edit"></i> <?php echo $lang['profile'] ?></a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="../../pages/modepasse.php"><i class="fas fa-lock-open"></i> <?php echo $lang['btn_modifye_password'] ?></a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="../../plateforme/in/logout.php"><i class="fas fa-power-off"></i> <?php echo $lang['logout'] ?></a>
+							</li>
+						</ul>
+					</li>
+	
+				</ul>
 			</div>
+		</nav>
+	
+		<nav class="navbar navbar-light" style="background-color: #e5e5e5d6;">
+			<div class="container justify-content-between" style="background-color: #dfdfdf75;">
+				<div class="d-flex">
+					<h5><?php echo $lang['accueil'] ?></h5>
+				</div>
+				<ul class="navbar-nav flex-row">
+					<li class="nav-item me-3 me-lg-1">
+						<a class="nav-link d-sm-flex align-items-sm-center" href="#">
+							<i class="fas fa-user me-lg-3"> | <?php echo $lang['presente'] ?>,
+							<strong class="d-sm-block"><?php echo $user->nome ?></strong></i>
+							<input type="hidden" id="idUs" value="<?php echo $user->id ?>"/>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	
+	<br><br><br><br><br><br><br><br><br>
+
+	<div class="container">
+        <div class="content">
+
+        </div>
+    </div>
+
+
+	<!-- <div class="container">
+		
+		<div class='content '>
+			<nav class="navbar navbar-light bg-light">
+				<div class="container-fluid">
+					<a class="navbar-brand"><?php echo $lang['title_post'] ?></a>
+					<form class="d-flex input-group w-auto">
+					<input
+						type="search"
+						class="form-control rounded"
+						placeholder="Search"
+						aria-label="Search"
+						aria-describedby="search-addon"
+					/>
+					<span class="input-group-text border-0" id="search-addon">
+						<i class="fas fa-search"></i>
+					</span>
+					</form>
+				</div>
+			</nav>
 			<hr>
 
 			<div class="group">
 				<div class="left shadow-2">
-					<div class="card mb-3" style="max-width: 780px;">
-						<div id="doc" class="row g-0">
-							<!-- <div class="col-md-4">
-								<img src="../../img/article.jpg" alt="Trendy Pants and Shoes" class="img-fluid rounded-start"/>
-							</div>
-							<div class="col-md-8">
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">
-									This is a wider card with supporting text below as a natural lead-in to
-									additional content. This content is a little bit longer.
-									</p>
-									<p class="card-text">
-									<small class="text-muted">Last updated 3 mins ago</small>
-									</p>
-									<hr>
-								</div>
-							</div> -->
+					<div class="grp_publication">
+						<div class="">
+							<h5 class="card-title"><?php echo $lang['list_doc_ret'] ?></h5>
+							<hr>
+							<div class="linhas"></div>
 						</div>
 					</div>
 				</div>
-				<div class="right shadow">
-					<div>
+				<div class="cors_rht">
+					<div class="cors_rht">
 						<?php
 							date_default_timezone_set('America/Sao_Paulo');
 							$date = date('d/m/Y');
@@ -225,7 +230,7 @@
 			
 		</div>
 
-		<!-- ############################## FORMULAIRE ###################### -->
+		############################## FORMULAIRE ###################### 
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
@@ -254,9 +259,7 @@
 								<label class="form-label" for="categorie"><?php echo $lang['form_categorie'] ?></label>
 								<div class="form-outline">
 									<input type="text" id="categorie" class="form-control form-control-sm" placeholder="<?php echo $lang['form_categorie'] ?>"/>
-									<!-- <select id="categorie" class="form-control form-control-sm">
-										<option value=""><?php echo $lang['form_categorie'] ?></option>
-									</select> -->
+									
 								</div>
 							</div>
 							<div class="col-md-12">
@@ -314,7 +317,7 @@
 			</div>
 		</div>
 
-	</div>
+	</div> -->
 
 	<script src="../../plateforme/js/jquery.js"></script>
     <script src="../../plateforme/js/main.js"></script>

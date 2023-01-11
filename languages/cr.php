@@ -41,6 +41,7 @@
 		'list_compts_act' => "Lis konte k ap tann aktivasyon",
 		'logout' => 'Dekonekte',
 		'title_post' => 'Pibliye yon dokiman ki pèdi',
+		'list_doc_ret' => 'Lis dokiman yo jwenn',
 
 		'form' => 'Fòm',
 		'_nom' => 'Non',

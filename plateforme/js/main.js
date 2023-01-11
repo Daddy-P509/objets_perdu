@@ -143,6 +143,7 @@ $(document).ready(function(){
                     retorno = response
                     var idOb = `${response.lastId}`;
                     salvarArquivo(idOb)
+                    window.location.reload();
                 },
             });
         return retorno;
@@ -224,41 +225,41 @@ $(document).ready(function(){
             //     addClass_ = "badge badge-warning rounded-pill d-inline"
             // }
 
-            var linha = `<div>`;
-                linha +=`<div class="col-md-4">`;
-                    linha +=`<img src="../../img/article.jpg" alt="" class="img-fluid rounded-start"/>`;
+            var linha = `<div id="doc" class="row g-0">`;
+                linha +=`<div class="col-md-4 img_pub">`;
+                    linha +=`<img src="${src}" alt="" class="img-fluid rounded-start imgP"/>`;
                 linha +=`</div>`;
 
                 linha +=`<div class="col-md-8">`;
                     linha +=`<div class="card-body">`;
-                        linha +=`<h5 class="card-title">Card title</h5>`;
-                        linha +=`<p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
-                        </p>`;
+                        linha +=`<div class="tetre_pub">`;
+                            linha +=`<h5 class="fw-bold mb-0">${el.nome}</h5>`;
+                            linha +=`<div class="card-text">
+                                <small class="text-muted me-lg-3"> <i class="fas fa-ellipsis-h modifier_pub" title="Clique pour modifier la publication"></i></small>
+                                <small class="text-muted"> <i class="fas fa-times suprimer_pub" title="Clique pour suprimer la publication"></i></small>
+                            </div>`;
+                        linha +=`</div>`;
 
-                        linha +=`<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>`;
+                        linha +=`<p class="card-text">${el.description}</p>`;
 
+                        linha +=`<p class="card-text"><small class="text-muted">${el.observation}</small></p>`;
+                        
                         linha +=`<hr>`;
+
+                        linha +=`<p class="card-text">
+                            <small class="text-muted me-lg-2"> <i class="fas fa-phone"></i> ${el.telefone}</small> <small class="text-muted me-lg-2">|</small>  
+                            <small class="text-muted me-lg-2"> ${el.date_} </small> <small class="text-muted me-lg-3">|</small>
+                            <small class="text-muted me-lg-3"> <i class="far fa-heart like_pub" title="Clique pour j'aime la publication"></i> 10</small>
+                            <small class="text-muted"> <i class="far fa-comment-dots comment_pub" title="Clique pour faire et voir les commentaires"></i> 25</small>
+                        </p>`;
 
                     linha +=`</div>`;
                 linha +=`</div>`;
-            
-            
-                // linha +=`<td>${el.id}</td>`;
-                // linha +=`<td>`;
-                //     linha +=`<div class="d-flex align-items-center">`;
-                //         linha +=`<div class="ms-3">`;
-                //             linha +=`<p class="fw-bold mb-1">${el.login}</p>`;
-                //             linha +=`<p class="text-muted mb-0">${el.email}</p>`;
-                //         linha +=`<div>`;
-                //     linha +=`</div>`;
-                // linha +=`</td>`;
-               
             linha +=`</div>`;
             linhas.push(linha);
         })
 
-        $('#doc').append(linhas);
+        $('.linhas').append(linhas);
     }
 
 });

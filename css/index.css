@@ -1,11 +1,29 @@
+body{
+    background-color: #ededed;
+}
+
+header {
+    position: fixed !important;
+    width: 100% !important;
+    background-color: #d1d1d1;
+}
 
 h1{
     font-size: medium;
 }
 
-.container{
-    background-color: #e7e7e7;
+div .content{
+    width: 60%;
+    margin: 0 auto;
+    height: 1200px;
+    background-color: #e3e3e3;
+    border: solid 1px;
 }
+
+/* .content {
+    background-color: #e7e7e7;
+    margin-top: 150px !important;
+} */
 
 .logo{
     color: #3b71ca !important;
@@ -54,7 +72,8 @@ label{
 }
 
 .left{
-    width: 68%;
+    width: 70%;
+    padding: 20px;
 
 }
 
@@ -100,8 +119,26 @@ label{
 }
 
 #doc{
-    border-top: solid 3px black;
+    border-top: solid 3px #838383;
     border-radius: 7px;
+    border-bottom: solid #838383;
+    margin-bottom: 9px;
+}
+
+.tetre_pub {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: solid 1px #c9c9c9;
+}
+
+.modifier_pub, .suprimer_pub, .like_pub, .comment_pub{
+    cursor: pointer;
+}
+
+.img_pub{
+    padding: 10px;
+    border-radius: 24px;
 }
 
 /* .shadow {
@@ -140,5 +177,17 @@ label{
         justify-content: space-between;
         flex-direction: column;
         align-items: baseline;
+    }
+
+    .comment_pub{
+        margin-left: 20px;
+    }
+
+    .suprimer_pub{
+        margin-left: 15px;
+    }
+
+    .imgP{
+        border-radius: 6px;
     }
 }

@@ -163,49 +163,20 @@
 		</nav>
 	</header>
 	
-	<br><br><br><br><br><br><br><br><br>
-
 	<div class="container">
-        <div class="content">
-
-        </div>
-    </div>
-
-
-	<!-- <div class="container">
-		
 		<div class='content '>
-			<nav class="navbar navbar-light bg-light">
-				<div class="container-fluid">
-					<a class="navbar-brand"><?php echo $lang['title_post'] ?></a>
-					<form class="d-flex input-group w-auto">
-					<input
-						type="search"
-						class="form-control rounded"
-						placeholder="Search"
-						aria-label="Search"
-						aria-describedby="search-addon"
-					/>
-					<span class="input-group-text border-0" id="search-addon">
-						<i class="fas fa-search"></i>
-					</span>
-					</form>
-				</div>
-			</nav>
-			<hr>
-
 			<div class="group">
 				<div class="left shadow-2">
-					<div class="grp_publication">
+					<!-- <div class="grp_publication">
 						<div class="">
 							<h5 class="card-title"><?php echo $lang['list_doc_ret'] ?></h5>
 							<hr>
 							<div class="linhas"></div>
 						</div>
-					</div>
+					</div> -->
 				</div>
-				<div class="cors_rht">
-					<div class="cors_rht">
+				<div class="right">
+					<!-- <div class="cors_rht">
 						<?php
 							date_default_timezone_set('America/Sao_Paulo');
 							$date = date('d/m/Y');
@@ -222,7 +193,7 @@
 					<hr>
 					
 					<br>
-					<hr>
+					<hr> -->
 				</div>
 			</div>
 				
@@ -230,7 +201,7 @@
 			
 		</div>
 
-		############################## FORMULAIRE ###################### 
+		<!-- ############################## MODAL FORMULAIRE ###################### 
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
@@ -315,9 +286,9 @@
 					<button type="button" id="limpar" class="btn btn-danger btn-sm"><?php echo $lang['btn_vide_camp'] ?></button>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
-	</div> -->
+	</div>
 
 	<script src="../../plateforme/js/jquery.js"></script>
     <script src="../../plateforme/js/main.js"></script>

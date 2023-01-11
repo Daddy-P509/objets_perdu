@@ -16,18 +16,54 @@
             background-color: #d1d1d1;
         }
         
-        /* nav{
-            height: 65px;
+        body{
+            background-color: #d9d9d9;
 
-        } */
-
-        div .content{
-            width: 60%;
-            margin: 0 auto;
-            height: 1200px;
-            background-color: #e3e3e3;
-            border: solid 1px;
         }
+
+        .cotent { 
+            background: lightgray;
+            width: 80%;
+            margin: 0 auto;
+            height: 1000px;
+   
+            display: flex;
+            padding: 10px;
+            justify-content: space-between;
+            align-items: stretch;
+
+        }
+
+        .cotent p {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .box-orange {
+            background: orange;
+            width: 20%;
+            height: 464px;
+            flex-shrink: 0;
+            z-index: var(--zi-dropdown);
+            box-shadow: 0 0 0 hsl(210deg 8% 5% / 5%);
+            transition: box-shadow ease-in-out .1s,transform ease-in-out .1s;
+            transform: translateZ(0);
+        }
+
+        .box-blue {
+            background: lightblue;
+            width: 60%;
+            height: 100px;
+        }
+
+        .sticky {
+            position: sticky;
+            /* background: red; */
+            top: 0;
+            padding: 10px;
+            color: white;
+        }
+
 
         
     </style>
@@ -212,8 +248,16 @@
     <br><br><br><br><br>
 
     <div class="container">
-        <div class="content">
+        <div class="cotent">
+            <div class="box-blue">
+                <p>Scroll down the page</p>
+                <hr>
+            </div>
 
+            <div class="box-orange">
+                <p class="sticky">I am sticky</p>
+            </div>
+            
         </div>
     </div>
 

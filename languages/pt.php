@@ -41,7 +41,7 @@
 		'active_compts' => 'Ativando contas',
 		'list_compts_act' => "Lista de contagens aguardando ativação",
 		'logout' => 'desconectar',
-		'title_post' => 'Publicar um documento perdido',
+		'title_post' => 'Publicar documento perdido',
 		'list_doc_ret' => 'Listas de documentos encontrados',
 
 		'form' => 'Formulário',

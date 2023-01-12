@@ -150,6 +150,9 @@
 				<div class="d-flex">
 					<h5><?php echo $lang['accueil'] ?></h5>
 				</div>
+				<div class="d-flex">
+					<h5><a id="abril_form" href="#"> <i class="far fa-file-alt"></i> <?php echo $lang['title_post'] ?></a></h5>
+				</div>
 				<ul class="navbar-nav flex-row">
 					<li class="nav-item me-3 me-lg-1">
 						<a class="nav-link d-sm-flex align-items-sm-center" href="#">
@@ -167,16 +170,16 @@
 		<div class='content '>
 			<div class="group">
 				<div class="left shadow-2">
-					<!-- <div class="grp_publication">
+					<div class="grp_publication">
 						<div class="">
-							<h5 class="card-title"><?php echo $lang['list_doc_ret'] ?></h5>
+							<h5 class="card-title"> <i class="fas fa-list"></i> <?php echo $lang['list_doc_ret'] ?></h5>
 							<hr>
 							<div class="linhas"></div>
 						</div>
-					</div> -->
+					</div>
 				</div>
 				<div class="right">
-					<!-- <div class="cors_rht">
+					<div class="cors_rht">
 						<?php
 							date_default_timezone_set('America/Sao_Paulo');
 							$date = date('d/m/Y');
@@ -193,16 +196,32 @@
 					<hr>
 					
 					<br>
-					<hr> -->
+					<hr>
 				</div>
 			</div>
-				
-				
 			
+			<!-- ############################## MODAL DELETE PUBLICATION ######################  -->
+			<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content" style="top: 280px;">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel"></h5>
+						</div>
+						<div class="modal-body" style="color: red;">
+							<h6></h6>
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="non" value="false" class="btn btn-secondary btn-sm" data-dismiss="modal">Non</button>
+							<button type="button" id="oui" value="true" class="btn btn-primary btn-sm">Oui</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 
-		<!-- ############################## MODAL FORMULAIRE ###################### 
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<!-- ############################## MODAL FORMULAIRE ######################  -->
+		<div class="modal fade" id="mod_formulaire" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 				<div class="modal-header">
@@ -286,8 +305,7 @@
 					<button type="button" id="limpar" class="btn btn-danger btn-sm"><?php echo $lang['btn_vide_camp'] ?></button>
 				</div>
 			</div>
-		</div> -->
-
+		</div>
 	</div>
 
 	<script src="../../plateforme/js/jquery.js"></script>

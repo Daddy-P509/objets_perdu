@@ -11,29 +11,27 @@ $pays = $_REQUEST['pays'];
 $categorie = $_REQUEST['categorie'];
 $description = $_REQUEST['description'];
 $observation = $_REQUEST['observation'];
-$user = $_REQUEST['user'];
 $recupere = $_REQUEST['recupere'];
 
-date_default_timezone_set('America/Sao_Paulo');
-$timestamp = date("Y-m-d H:i:s");
+$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : die('Precisa de um id');
 
-$sql = "INSERT INTO objets VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+$sql ="UPDATE objets SET nome = ? , categorie = ?, telefone = ?, pays = ?, description = ?, observation = ?, recupere =? WHERE id = ?";
+
 $arrayParametros = [
     $nom,
+    $categorie,
     $telefone,
     $pays,
-    $categorie,
     $description,
     $observation,
-    $user,
     $recupere,
-    $timestamp,
-    0
+    $id
 ];
 
 // var_dump($arrayParametros);die;
 
 $stmt = $db->prepare($sql);
 $stmt->execute($arrayParametros);
-$id = $db->lastInsertId();
-echo json_encode( ["success" => true, "lastId" => $id] );
+$repons = array('success'=>true);
+echo json_encode($repons);

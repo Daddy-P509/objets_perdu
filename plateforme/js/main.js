@@ -61,7 +61,6 @@ $(document).ready(function(){
     // Aperçu de l'image.
     var arquivo = '';
     function verImagen(datos) {
-        console.log(datos)
         if (datos.files && datos.files[0]) {
 
             var reader = new FileReader();
@@ -108,6 +107,24 @@ $(document).ready(function(){
         }
     });
 
+    var id = null;
+    $(document).on('click', '.modifier_pub', function(){
+        $('#mod_formulaire').modal('show')
+        let idP = $(this).closest('div[idPub]');
+        let idPub = idP.attr('idPub');
+        const result = doc.find( array => array.id == idPub)
+        
+        $('#nom').val(result.nome);
+        $('#select_pais').val(result.pays);
+        $('#categorie').val(result.categorie);
+        $('#description').val(result.description);
+        $('#telefone').val(result.telefone);
+        $('#observation').val(result.observation);
+        $('#imgVisor').attr('src', result.url);
+        id = idPub
+
+    });
+
     $('#publier').click(function(){
         var retorno = false;
         var nom = $('#nom').val();
@@ -126,27 +143,46 @@ $(document).ready(function(){
             telefone,
             observation,
             recupere,
-            user:idUs
+            user:idUs,
+            id
         }
             
         if(!nom || !telefone || !pays || !description){
             alert('Tous les champs son obligatoir')
         }else{
 
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: '../../plateforme/php/publier_objet.php',
-                async: false,
-                data: form_objet,
-                success: function (response) {
-                    retorno = response
-                    var idOb = `${response.lastId}`;
-                    salvarArquivo(idOb)
-                    window.location.reload();
-                },
-            });
-        return retorno;
+            if(id){
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: '../../plateforme/php/modificar_objets.php',
+                    async: false,
+                    data: form_objet,
+                    success: function (response) {
+                        retorno = response
+                        var idOb = `${response.lastId}`;
+                        salvarArquivo(idOb)
+                        window.location.reload();
+                    },
+                });
+                return retorno;
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: '../../plateforme/php/publier_objet.php',
+                    async: false,
+                    data: form_objet,
+                    success: function (response) {
+                        retorno = response
+                        var idOb = `${response.lastId}`;
+                        salvarArquivo(idOb)
+                        window.location.reload();
+                    },
+                });
+                return retorno;
+            }
+
         }
 
     });
@@ -156,8 +192,6 @@ $(document).ready(function(){
     function salvarArquivo( idOb){
         var formData = new FormData();
         var files = arquivo;
-
-        console.log( idOb);
  
         formData.append('file', files);
 
@@ -177,7 +211,7 @@ $(document).ready(function(){
 
     /* ####################### IMPRIMIR LISTAR DE DOCUMENTO ########################### */
 
-    function buscarFuncionario(){
+    function buscarListaDocumentos(){
         var retorno = false;
         $.ajax({
             type: 'GET',
@@ -187,21 +221,19 @@ $(document).ready(function(){
             data: null,
             success: function (data) {
                 retorno = data
-                imprimirListarUsuario(data)
+                imprimirListarDocumentos(data)
             }
         });
 
         return retorno;
     }
     
-    buscarFuncionario()
+    var doc = buscarListaDocumentos()
 
-    function imprimirListarUsuario(data){
+    function imprimirListarDocumentos(data){
         var linhas = [];
         var img = "../../img/article.jpg";
         data.forEach( el => {
-
-            // console.log(el);
 
             if(el.url == "http://localhost/omega/plateform/php/abrir_arquivos.php?id="){
                 src = img;
@@ -209,23 +241,7 @@ $(document).ready(function(){
                 src = el.url;
             }
 
-            // if(el.statu_ == '1'){
-            //     statu = "Admin"
-            //     addClass = "badge badge-success rounded-pill d-inline"
-            // }else{
-            //     statu = "Usuario"
-            //     addClass = "badge badge-warning rounded-pill d-inline"
-            // }
-
-            // if(el.active == '1'){
-            //     active_ = "Ligado"
-            //     addClass_ = "badge badge-success rounded-pill d-inline"
-            // }else{
-            //     active_ = "Desligardo"
-            //     addClass_ = "badge badge-warning rounded-pill d-inline"
-            // }
-
-            var linha = `<div id="doc" class="row g-0">`;
+            var linha = `<div idPub=${el.id} id="doc" class="row g-0 shadow-3">`;
                 linha +=`<div class="col-md-4 img_pub">`;
                     linha +=`<img src="${src}" alt="" class="img-fluid rounded-start imgP"/>`;
                 linha +=`</div>`;
@@ -236,7 +252,7 @@ $(document).ready(function(){
                             linha +=`<h5 class="fw-bold mb-0">${el.nome}</h5>`;
                             linha +=`<div class="card-text">
                                 <small class="text-muted me-lg-3"> <i class="fas fa-ellipsis-h modifier_pub" title="Clique pour modifier la publication"></i></small>
-                                <small class="text-muted"> <i class="fas fa-times suprimer_pub" title="Clique pour suprimer la publication"></i></small>
+                                <small class="text-muted"> <i idPub=${el.id} class="fas fa-times delete_pub" title="Clique pour suprimer la publication"></i></small>
                             </div>`;
                         linha +=`</div>`;
 
@@ -248,10 +264,12 @@ $(document).ready(function(){
 
                         linha +=`<p class="card-text">
                             <small class="text-muted me-lg-2"> <i class="fas fa-phone"></i> ${el.telefone}</small> <small class="text-muted me-lg-2">|</small>  
-                            <small class="text-muted me-lg-2"> ${el.date_} </small> <small class="text-muted me-lg-3">|</small>
+                            <small class="text-muted me-lg-2"> <i class="fas fa-calendar-check"></i> ${el.date_} </small> <small class="text-muted me-lg-3">|</small>
                             <small class="text-muted me-lg-3"> <i class="far fa-heart like_pub" title="Clique pour j'aime la publication"></i> 10</small>
-                            <small class="text-muted"> <i class="far fa-comment-dots comment_pub" title="Clique pour faire et voir les commentaires"></i> 25</small>
+                            <small class="text-muted "> <i class="far fa-comment-dots comment_pub" title="Clique pour faire et voir les commentaires"></i> 25</small>
                         </p>`;
+
+                        linha +=`<small class="text-muted me-lg-2"> <i class="fas fa-user-edit auteur_pub" title="Publier par..."></i> ${el.user}</small>`;
 
                     linha +=`</div>`;
                 linha +=`</div>`;
@@ -261,5 +279,58 @@ $(document).ready(function(){
 
         $('.linhas').append(linhas);
     }
+
+    $('#abril_form').click(function(){
+        $('#mod_formulaire').modal('show')
+    });
+
+    /* SUPRIME REGISTRE DANS LE TABLEAU */
+
+    function loadModal(title, content, callBack){
+    
+        const modal = $('#modal'),
+        oui =  modal.find('button#oui'),
+        non = modal.find('button#non');
+
+        modal.find('.modal-header h5').text(title||'');
+        modal.find('.modal-body h6').text(content||'');
+        
+        oui.unbind( "click" );
+        non.unbind( "click" );
+        oui.click(callBack);
+        non.click(callBack);
+
+        modal.modal('show');
+    }
+
+    $(document).on('click', '.delete_pub', function(){
+        const $this = $(event.currentTarget);
+        $('#con_delete').modal('show')
+        let id = $(this).closest('i');
+        let idPub = id.attr('idPub');
+
+        loadModal("Confirmé", "Cliqué oui si vous voulez suprimé", (event)=>{
+            if( $(event.currentTarget).attr('value') == 'true' ){
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: `../../plateforme/php/delete_doc.php?idPub=${idPub}`,
+                    async: false,
+                    data: null,
+                    success: function (response) {
+                        // debugger;
+                        $('#doc').remove();
+                    },
+                    complete: function(){
+                        $('#modal').modal('hide');
+                    }
+                    
+                });
+            }else{
+                alert('Ação cancelada, não vou excluir')
+                $('#modal').modal('hide');
+            }
+        });
+    });
 
 });

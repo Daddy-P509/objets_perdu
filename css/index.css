@@ -159,6 +159,7 @@ label{
     border-radius: 24px;
 }
 
+
 /* .shadow {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
 } */
@@ -212,4 +213,6 @@ label{
         border-radius: 6px;
         margin-left: 23px;
     }
+
+
 }

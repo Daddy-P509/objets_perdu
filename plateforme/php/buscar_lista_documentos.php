@@ -9,7 +9,7 @@ $db = ConexaoMySQL::getInstance();
 $db->exec("set names utf8");
 $stmt = $db->prepare("SELECT ob.id, ob.nome, ob.telefone, ob.pays, ob.categorie, ob.description, ob.observation, ob.recupere, ob.date_, ob.delete_, im.name, im.type, us.nome 
 AS user, im.objets_id FROM  objets AS ob
-INNER JOIN images AS im ON im.objets_id = ob.id
+LEFT JOIN images AS im ON im.objets_id = ob.id
 INNER JOIN user AS us ON ob.user_id = us.id WHERE ob.recupere = 0 AND ob.delete_ = 0 ORDER BY ob.id DESC");
 
 $stmt->execute();
@@ -32,7 +32,7 @@ foreach ($arquivos as $arquivo) {
         "user" => $arquivo->user,
         "type" => $arquivo->type,
         "objets_id" => $arquivo->objets_id,
-        "url"=> "http://localhost/objets_perdu/plateforme/php/abrir_arquivos.php?id=".$arquivo->objets_id
+        "url"=> "../../plateforme/php/abrir_arquivos.php?id=".$arquivo->objets_id
     ];
 }
 

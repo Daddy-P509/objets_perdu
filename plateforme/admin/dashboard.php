@@ -41,7 +41,7 @@
 			<div class="container justify-content-between">
 				<div class="d-flex">
 					<!-- Logo -->
-					<a class="navbar-brand me-2 mb-1 d-flex align-items-center logo" href="#">
+					<a class="navbar-brand me-2 mb-1 d-flex align-items-center logo" href="../../plateforme/admin/dashboard.php?accueil">
 						<?php echo $lang['logo'] ?>
 					</a>
 				</div>
@@ -172,7 +172,7 @@
 				<div class="left shadow-2">
 					<div class="grp_publication">
 						<div class="">
-							<h5 class="card-title"> <i class="fas fa-list"></i> <?php echo $lang['list_doc_ret'] ?></h5>
+							<h5 class="title"> <i class="fas fa-list"></i> <?php echo $lang['list_doc_ret'] ?></h5>
 							<hr>
 							<div class="linhas"></div>
 						</div>

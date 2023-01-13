@@ -8,12 +8,12 @@
 		header("Location:./systheme/in/logout.php");
 	}
 
-	// require_once '../pages/conect/ConexaoMySQL.php';
-	// $db = ConexaoMySQL::getInstance();
-	// $sql = "SELECT COUNT(id) AS cantite FROM user WHERE active = 0";
-    // $stmt = $db->prepare($sql);
-    // $stmt->execute();
-    // $rest = $stmt->fetch(PDO::FETCH_OBJ);
+	require_once './../plateforme/conect/ConexaoMySQL.php';
+	$db = ConexaoMySQL::getInstance();
+	$sql = "SELECT COUNT(id) AS cantite FROM user WHERE active = 0";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $rest = $stmt->fetch(PDO::FETCH_OBJ);
 
 ?>
 
@@ -41,11 +41,11 @@
 			<div class="container justify-content-between">
 				<div class="d-flex">
 					<!-- Logo -->
-					<a class="navbar-brand me-2 mb-1 d-flex align-items-center logo" href="#">
+					<a class="navbar-brand me-2 mb-1 d-flex align-items-center logo" href="../plateforme/admin/dashboard.php?accueil">
 						<?php echo $lang['logo'] ?>
 					</a>
 				</div>
-
+	
 				<!-- Menu -->
 				<ul class="navbar-nav flex-row d-none d-md-flex">
 					<li class="nav-item me-3 me-lg-1 active">
@@ -67,7 +67,7 @@
 						</a>
 					</li>
 				</ul>
-
+	
 				<!-- Right elements -->
 				<ul class="navbar-nav flex-row">
 					<!-- <li class="nav-item me-3 me-lg-1">
@@ -96,7 +96,7 @@
 					<li class="nav-item dropdown me-3 me-lg-3">
 						<a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false" >
 							<i class="fas fa-bell fa-lg" title="<?php echo $lang['soliciter_Ac'] ?>"></i>
-							<span class="badge rounded-pill badge-notification bg-danger"></span>
+							<span class="badge rounded-pill badge-notification bg-danger"><?php echo $rest->cantite ?></span>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 							<li>
@@ -140,15 +140,15 @@
 							</li>
 						</ul>
 					</li>
-
+	
 				</ul>
 			</div>
 		</nav>
-
+	
 		<nav class="navbar navbar-light" style="background-color: #e5e5e5d6;">
 			<div class="container justify-content-between" style="background-color: #dfdfdf75;">
 				<div class="d-flex">
-					<h5><?php echo $lang['profile'] ?></h5>
+					<h5><?php echo $lang['accueil'] ?></h5>
 				</div>
 				<ul class="navbar-nav flex-row">
 					<li class="nav-item me-3 me-lg-1">
@@ -164,11 +164,10 @@
 	</header>
 
 	<br>
-	<div class="container justify-content-between">
-		<div class=''>
-			<h4 class="title"><i class="fas fa-key me-lg-2"></i><?php echo $lang['btn_modifye_password'] ?></h4>
-			<hr>
 
+	<div class="container">
+		<div class='content '>
+			<h4 class="title"><i class="fas fa-cogs me-lg-2"></i><?php echo $lang['btn_modifye_password'] ?></h4>
 			<div class="group">
 				<div class="left shadow-2">
 					<div class='card'>
@@ -201,8 +200,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="right shadow">
-					<div>
+				<div class="right">
+					<div class="cors_rht">
 						<?php
 							date_default_timezone_set('America/Sao_Paulo');
 							$date = date('d/m/Y');
@@ -222,15 +221,9 @@
 					<hr>
 				</div>
 			</div>
-				
-				
-			
+
 		</div>
 	</div>
-
-	<!-- <script src="../lib/jquery/jquery.js"></script>
-	<link href="../dist/zabuto_calendar.min.css" rel="stylesheet">
-	<script src="../dist/zabuto_calendar.min.js"></script> -->
 
 	<script src="../plateforme/js/jquery.js"></script>
     <script src="../plateforme/js/profil.js"></script>

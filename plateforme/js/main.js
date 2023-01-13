@@ -160,9 +160,9 @@ $(document).ready(function(){
                     data: form_objet,
                     success: function (response) {
                         retorno = response
-                        var idOb = `${response.lastId}`;
+                        var idOb = id;
                         salvarArquivo(idOb)
-                        window.location.reload();
+                        // window.location.reload();
                     },
                 });
                 return retorno;
@@ -192,7 +192,7 @@ $(document).ready(function(){
     function salvarArquivo( idOb){
         var formData = new FormData();
         var files = arquivo;
- 
+
         formData.append('file', files);
 
         $.ajax({
@@ -235,7 +235,7 @@ $(document).ready(function(){
         var img = "../../img/article.jpg";
         data.forEach( el => {
 
-            if(el.url == "http://localhost/omega/plateform/php/abrir_arquivos.php?id="){
+            if(el.url == "../../plateforme/php/abrir_arquivos.php?id="){
                 src = img;
             }else{
                 src = el.url;
@@ -320,6 +320,9 @@ $(document).ready(function(){
                     success: function (response) {
                         // debugger;
                         $('#doc').remove();
+                        setTimeout(() => {
+                            location.reload();
+                        }, 300);
                     },
                     complete: function(){
                         $('#modal').modal('hide');

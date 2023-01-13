@@ -16,7 +16,7 @@ $criptModepasse = md5($modepasse);
 date_default_timezone_set('America/Sao_Paulo');
 $timestamp = date("Y-m-d H:i:s");
 
-$sql = "INSERT INTO user VALUES (NULL, ?, ?, 0, 0, ?, ?, ?, ?, ?, NULL, ?)";
+$sql = "INSERT INTO user VALUES (NULL, ?, ?, 0, 0, ?, ?, ?, ?, ?, ?, 0)";
 $arrayParametros = [
     $nome,
     $telefone,

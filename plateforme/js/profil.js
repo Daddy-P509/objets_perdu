@@ -163,14 +163,14 @@ $(document).ready(function(){
                    if(el.active == 0){
                        active = $('.titre').text();
                    }
-                    var linha = "<div class='grp'>";
+                    var linha = `<div idAc=${el.id} class='grp'>`;
                         linha +="<div class='cabesa'>";
                             linha +="<div class='titre'>";
                                 linha +=`<h6>${$('.titre').text()}</h6>`;
                             linha +="</div>";
 
                             linha +="<div class='bt'>";
-                                linha +=`<button type='button' class='btn btn-info btn-sm'><i class='fas fa-check me-lg-2'></i>${$('.btn_active').text()}</button>`;
+                                linha +=`<button type='button' id='active' class='btn btn-info btn-sm'><i class='fas fa-check me-lg-2'></i>${$('.btn_active').text()}</button>`;
                             linha +="</div>";
                         linha +="</div>";   
 
@@ -206,5 +206,41 @@ $(document).ready(function(){
 
     buscarAllActivates();
     
+    $(document).on('click', '#active',function(){
+        var adm_active = $('#idUs').val()
+
+        let id = $(this).closest('div[idAc]');
+        let idAc = id.attr('idAc');
+        var retorno = false;
+
+        var objActive = {
+            adm_active,
+            idAc
+        }
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: `../plateforme/php/active_compt_user.php`,
+            async: false,
+            data: objActive,
+            success: function (response) {
+                retorno = response
+                location.reload();
+            },
+        });
+        return retorno;
+      
+    });
+
+    // mdb.Alert.getInstance(document.getElementById("alertExample")).update({
+    //     position: "top-right",
+    //     delay: 2000,
+    //     autohide: false,
+    //     width: "600px",
+    //     offset: 20,
+    //     stacking: false,
+    //     appendToBody: false,
+    // });
 
 });

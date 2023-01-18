@@ -42,6 +42,7 @@
 		'active_compts' => 'Ativando contas',
 		'list_compts_act' => "Lista de contagens aguardando ativação",
 		'msg_activ_compt' => 'Conta ativada com sucesso',
+		'msg_creer_compt' => 'Já existe uma conta com este e-mail ',
 		'logout' => 'desconectar',
 		'title_post' => 'Publicar documento perdido',
 		'list_doc_ret' => 'Listas de documentos encontrados',

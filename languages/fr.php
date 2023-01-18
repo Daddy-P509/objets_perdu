@@ -42,6 +42,7 @@
 		'active_compts' => 'Activation le comptes',
 		'list_compts_act' => "Liste des comtes attente d'activation",
 		'msg_activ_compt' => 'Compte active avec succès',
+		'msg_creer_compt' => 'Il existe déjà un compte avec cette email ',
 		'logout' => 'Déconnecter',
 		'title_post' => 'Publier un document perdu',
 		'list_doc_ret' => 'Listes des documents retrouvés',

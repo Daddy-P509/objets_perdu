@@ -41,6 +41,7 @@
 		'active_compts' => 'Aktive Kont',
 		'list_compts_act' => "Lis konte k ap tann aktivasyon",
 		'msg_activ_compt' => 'Kont aktive avèk siksè',
+		'msg_creer_compt' => 'Gen yon kont ki egziste deja ak imel sa ',
 		'logout' => 'Dekonekte',
 		'title_post' => 'Pibliye yon dokiman ki pèdi',
 		'list_doc_ret' => 'Lis dokiman yo jwenn',

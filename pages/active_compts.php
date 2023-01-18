@@ -169,15 +169,17 @@
 			<h4 class="title"><i class="fas fa-check me-lg-2"></i><?php echo $lang['active_compts'] ?></h4>
 			<div class="group">
 				<div class="left shadow-2">
-					<div class='card'>
-						<div class='card-body'>
-							<h5 class="card-title"><?php echo $lang['list_compts_act'] ?></h5>
-							<hr>
-							<div class="">
-								<p class="invisible titre" style="display: none;" ><?php echo $lang['soliciter_Ac'] ?></p>
-								<p class="invisible btn_active" style="display: none;"><?php echo $lang['active_compts'] ?></p>
-								<div class="corpos scrollspy"></div>
+					<div class='grp_publication'>
+						<div class='card'>
+							<div class='card-body'>
+								<h5 class="card-title"><?php echo $lang['list_compts_act'] ?></h5>
 								<hr>
+								<div class="">
+									<p class="invisible titre" style="display: none;" ><?php echo $lang['soliciter_Ac'] ?></p>
+									<p class="invisible btn_active" style="display: none;"><?php echo $lang['active_compts'] ?></p>
+									<div class="corpos scrollspy"></div>
+									<hr>
+								</div>
 							</div>
 						</div>
 					</div>

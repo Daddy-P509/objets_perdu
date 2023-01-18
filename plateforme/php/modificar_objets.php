@@ -16,7 +16,7 @@ $recupere = $_REQUEST['recupere'];
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : die('Precisa de um id');
 
 
-$sql ="UPDATE objets SET nome = ? , categorie = ?, telefone = ?, pays = ?, description = ?, observation = ?, recupere =? WHERE id = ?";
+$sql ="UPDATE objets SET nome = ? , categorie_id = ?, telefone = ?, pays = ?, description = ?, observation = ?, recupere =? WHERE id = ?";
 
 $arrayParametros = [
     $nom,

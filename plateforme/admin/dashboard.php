@@ -10,11 +10,14 @@
 
 	require_once '../../plateforme/conect/ConexaoMySQL.php';
 	$db = ConexaoMySQL::getInstance();
+	$languer = $_SESSION['lang'];
 	$sql = "SELECT COUNT(id) AS cantite FROM user WHERE active = 0";
+	// $sql = "SELECT description FROM categorie WHERE lang = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $rest = $stmt->fetch(PDO::FETCH_OBJ);
-
+	
+	// var_dump($rest);die;
 ?>
 
 <!DOCTYPE html>
@@ -150,6 +153,7 @@
 				<div class="d-flex">
 					<h5><?php echo $lang['accueil'] ?></h5>
 				</div>
+				<p style="display: none;" class="lg"><?php echo $languer ?></p>
 				<div class="d-flex">
 					<h5><a id="abril_form" href="#"> <i class="far fa-file-alt"></i> <?php echo $lang['title_post'] ?></a></h5>
 				</div>
@@ -246,10 +250,12 @@
 								</div>
 							</div>
 							<div class="col-md-6">
-								<label class="form-label" for="categorie"><?php echo $lang['form_categorie'] ?></label>
 								<div class="form-outline">
-									<input type="text" id="categorie" class="form-control form-control-sm" placeholder="<?php echo $lang['form_categorie'] ?>"/>
-									
+									<!-- <input type="text" id="categorie" class="form-control form-control-sm" placeholder="<?php echo $lang['form_categorie'] ?>"/> -->
+									<label class="form-label" for="categorie"><?php echo $lang['form_categorie'] ?></label>
+									<select id="categorie" class="form-control form-control-sm">
+										<option value=""><?php echo $lang['form_categorie'] ?></option>
+									</select>
 								</div>
 							</div>
 							<div class="col-md-12">

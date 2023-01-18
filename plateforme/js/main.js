@@ -99,6 +99,33 @@ $(document).ready(function(){
 
     $("#select_pais").append(op);
 
+    var lang = $('.lg').text()
+
+    function buscarAllCategorie(lang) {
+        var retorno = false;
+
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: `../../plateforme/php/buscar_categorie.php?lang=${lang}`,
+            async: false,
+            data: null,
+            success: function (response) {
+                retorno = response
+            },
+        });
+        return retorno;
+    }
+
+    var categ = buscarAllCategorie(lang);
+
+    var cat = '';
+    for (var i = 0; i < categ.length; i++) {
+        cat += '<option value="' + categ[i].id + '">' + categ[i].description + '</option>'
+    }
+
+    $("#categorie").append(cat);
+
     $('#recupere').change(function(){
         if($(this).is(':checked')){
             $('#recupere').val('1');
@@ -113,10 +140,10 @@ $(document).ready(function(){
         let idP = $(this).closest('div[idPub]');
         let idPub = idP.attr('idPub');
         const result = doc.find( array => array.id == idPub)
-        
+        console.log(result.categorie_id);
         $('#nom').val(result.nome);
         $('#select_pais').val(result.pays);
-        $('#categorie').val(result.categorie);
+        $('#categorie').val(result.categorie_id);
         $('#description').val(result.description);
         $('#telefone').val(result.telefone);
         $('#observation').val(result.observation);
@@ -162,7 +189,7 @@ $(document).ready(function(){
                         retorno = response
                         var idOb = id;
                         salvarArquivo(idOb)
-                        // window.location.reload();
+                        window.location.reload();
                     },
                 });
                 return retorno;
@@ -335,5 +362,31 @@ $(document).ready(function(){
             }
         });
     });
+
+    $(document).on('click', '.like_pub', function(){
+
+        let idP = $(this).closest('div[idPub]');
+        let idPub = idP.attr('idPub');
+
+        var like
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: `../../plateforme/php/delete_doc.php?idPub=${idPub}`,
+            async: false,
+            data: null,
+            success: function (response) {
+                // debugger;
+                $('#doc').remove();
+                setTimeout(() => {
+                    location.reload();
+                }, 300);
+            },
+            complete: function(){
+                $('#modal').modal('hide');
+            }
+            
+        });
+    })
 
 });

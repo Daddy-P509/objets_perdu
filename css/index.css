@@ -155,7 +155,7 @@ label{
 }
 
 .img_pub{
-    padding: 10px;
+    padding: 10px !important;
     border-radius: 24px;
 }
 
@@ -211,7 +211,6 @@ label{
 
     .imgP{
         border-radius: 6px;
-        margin-left: 23px;
     }
 
 

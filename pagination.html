@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+</head>
+
+<body>
+
+    <style>
+        .box {
+            float: left;
+            padding: 50px 0px;
+        }
+
+        .clearfix::after {
+            clear: both;
+            display: table;
+        }
+
+        .options {
+            margin: 5px 0px 0px 0px;
+            float: left;
+        }
+
+        .pagination {
+            float: right;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+
+    <br><br><br><br>
+    <div class="container">
+        <div>
+            <table id="request-table">
+            </table>
+        </div>
+
+        <div class="clearfix">
+            <div class="box options">
+                <label>Requests Per Page: </label>
+                <select id="req_per_page" onchange="filter_requests()">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>ALL</option>
+                </select>
+            </div>
+            <div class="box pagination">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+    <script src="./plateforme/js/jquery.js"></script>
+    <script src="./plateforme/js/pag.js"></script>
+</body>
+
+</html>

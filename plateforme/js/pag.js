@@ -104,6 +104,7 @@ function active_page(element, rows, req_per_page) {
 function render_table_rows(rows, req_per_page, page_no) {
     const response = JSON.parse(window.atob(rows));
     const resp = response.slice(req_per_page * (page_no - 1), req_per_page * page_no)
+    
     $('#request-table').empty()
     $('#request-table').append('<tr><th>Index</th><th>Request No</th><th>Title</th></tr>');
     resp.forEach(function (element, index) {
